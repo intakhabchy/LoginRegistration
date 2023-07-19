@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\HomeController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +15,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// default while installed
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+// works
+//Route::get('/', 'App\Http\Controllers\HomeController@index')->name('homepage');
+Route::get('/',[HomeController::class,'index'])->name('homepage');
