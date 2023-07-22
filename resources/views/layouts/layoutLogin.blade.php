@@ -6,42 +6,20 @@
 		<title>KofeJob</title>
 		
 		<!-- Favicon -->
-		<link rel="shortcut icon" href="{{asset('assets/img/favicon.png')}}" type="image/x-icon">
+		<link rel="shortcut icon" href="{{ asset('assets/img/favicon.png')}}" type="image/x-icon">
 		
 		<!-- Bootstrap CSS -->
-		<link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">
+		<link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css')}}">
 				
 		<!-- Fontawesome CSS -->
-		<link rel="stylesheet" href="{{asset('assets/plugins/fontawesome/css/fontawesome.min.css')}}">
-		<link rel="stylesheet" href="{{asset('assets/plugins/fontawesome/css/all.min.css')}}">
-		
-		<!-- Owl Carousel CSS -->
-		<link rel="stylesheet" href="{{asset('assets/css/owl.carousel.min.css')}}">
-		<link rel="stylesheet" href="{{asset('assets/css/owl.theme.default.min.css')}}">
-		
-		<link rel="stylesheet" href="{{asset('assets/css/animate.min.css')}}">
-		<link rel="stylesheet" href="{{asset('assets/css/animate.css')}}">
-		
-		<!-- Aos CSS -->
-		<link rel="stylesheet" href="{{asset('assets/plugins/aos/aos.css')}}">
-		
-		<!-- Select2 CSS -->
-		<link rel="stylesheet" href="{{asset('assets/plugins/select2/css/select2.min.css')}}">
+		<link rel="stylesheet" href="{{ asset('assets/plugins/fontawesome/css/fontawesome.min.css')}}">
+		<link rel="stylesheet" href="{{ asset('assets/plugins/fontawesome/css/all.min.css')}}">
 		
 		<!-- Main CSS -->
-		<link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
+		<link rel="stylesheet" href="{{ asset('assets/css/style.css')}}">
 	</head>		
-	<body class="home-page bg-one">
-		
-		<!-- Loader -->
-		<div id="global-loader"  >
-			<div class="whirly-loader"> </div>
-			<div class="loader-img">
-				<img src="{{asset('assets/img/load-icon.svg')}}" class="img-fluid" alt="">
-			</div>
-		</div>
-		<!-- Loader -->
-		
+	<body class="account-page">
+
 		<!-- Main Wrapper -->
 		<div class="main-wrapper">
 					
@@ -71,10 +49,10 @@
 							</a>
 						</div>
 						<ul class="main-nav">
-							<li class="active has-submenu">
+							<li class="has-submenu">
 								<a href="{{ route('homepage') }}">Home <i class="fas fa-chevron-down"></i></a>
 								<ul class="submenu">
-									<li class="active"><a href="{{ route('homepage') }}">Home</a></li>
+									<li ><a href="{{ route('homepage') }}">Home</a></li>
 									<li><a href="index-2.html">Home-2</a></li>
 									<li><a href="index-3.html">Home-3</a></li>
 									<li><a href="index-4.html">Home-4</a></li>
@@ -82,7 +60,7 @@
 								</ul>
 							</li>
 							<li class="has-submenu">
-								<a href="">For Employers <i class="fas fa-chevron-down"></i></a>
+								<a href="">For Employers<i class="fas fa-chevron-down"></i></a>
 								<ul class="submenu">
 									<li class="has-submenu">
 										<a href="#">Freelancer</a>
@@ -106,7 +84,7 @@
 								</ul>
 							</li>
 							<li class="has-submenu">
-								<a href="">For Freelancer <i class="fas fa-chevron-down"></i></a>
+								<a href="">For Freelancer<i class="fas fa-chevron-down"></i></a>
 								<ul class="submenu">
 									<li class="has-submenu">
 										<a href="#">Projects</a>
@@ -115,9 +93,9 @@
 											<li><a href="project-details.html">Project Details</a></li>
 										</ul>
 									</li>
-									<li><a href="freelancer-dashboard.html">Dashboard</a></li>
+									<li><a href="freelancer-dashboard.html">Dashboard</a></li>	
 									<li><a href="developer-profile.html">My Profile</a></li>	
-									<li><a href="developer-details.html">Freelancer Details</a></li>
+									<li><a href="developer-details.html">Freelancer Details</a></li>	
 									<li><a href="freelancer-project-proposals.html">Projects</a></li>
 									<li><a href="freelancer-favourites.html">Favourites</a></li>
 									<li><a href="freelancer-membership.html">Membership</a></li>
@@ -129,7 +107,7 @@
 									<li><a href="freelancer-profile-settings.html">Settings</a></li>				
 								</ul>
 							</li>
-							<li class="has-submenu">
+							<li class="has-submenu active">
 								<a href="">Pages <i class="fas fa-chevron-down"></i></a>
 								<ul class="submenu">
 									<li><a href="about.html">About us</a></li>
@@ -162,80 +140,87 @@
 							</li>
 						</ul>
 					</div>		 
-					<ul class="nav header-navbar-rht reg-head">												
-						<li><a href="{{ route('registrationpage') }}" class="reg-btn"><img src="{{asset('assets/img/icon/reg-icon.svg')}}" class="me-1" alt="icon"> Register</a></li>
-						<li><a href="{{ route('loginpage') }}" class="log-btn"><img src="{{asset('assets/img/icon/lock-icon.svg')}}" class="me-1" alt="icon"> Login</a></li>
+					<ul class="nav header-navbar-rht">					
+						<li><a href="{{ route('registrationpage') }}" class="reg-btn"><i class="fas fa-user"></i> Register</a></li>
+						<li><a href="{{ route('loginpage') }}" class="log-btn"><i class="fas fa-lock"></i> Login</a></li>
 						<li><a href="post-project.html" class="login-btn">Post a Project </a></li>
 					</ul>
 				</nav>
 			</header>
 			<!-- /Header -->
-
+			
+			<!-- Page Content -->
             @yield('content')
-
+			<!-- /Page Content -->
+   
 			<!-- Footer -->	
 			<footer class="footer">
-				<div class="footer-top aos" data-aos="fade-up">
+				<div class="footer-top">
 					<div class="container">
 
 						<div class="row">
-							<div class="col-xl-3 col-md-6">
+							<div class="col-md-3">
+								<h2 class="footer-title">Office Address</h2>
+								<div class="footer-address">
+									<div class="off-address">
+										<p class="mb-2">New York, USA (HQ)</p>
+										<address class="mb-0">750 Sing Sing Rd, Horseheads, NY, 14845</address>
+										<p>Call: <a href="#"><u>469-537-2410</u> (Toll-free)</a> </p>
+									</div>
+									<div class="off-address">
+										<p class="mb-2">Sydney, Australia </p>
+										<address class="mb-0">24 Farrar Parade COOROW WA 6515</address>
+										<p>Call: <a href="#"><u>(08) 9064 9807</u> (Toll-free)</a> </p>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-2">
 								<div class="footer-widget footer-menu">
 									<h2 class="footer-title">Useful Links</h2>
 									<ul>
-										<li><a href="about.html"><i class="fas fa-angle-right me-1"></i>About Us</a></li>
-										<li><a href="blog-list.html"><i class="fas fa-angle-right me-1"></i>Blog</a></li>
-										<li><a href="login.html"><i class="fas fa-angle-right me-1"></i>Login</a></li>
-										<li><a href="register.html"><i class="fas fa-angle-right me-1"></i>Register</a></li>
-										<li><a href="forgot-password.html"><i class="fas fa-angle-right me-1"></i>Forgot Password</a></li>
+										<li><a href="about.html">About Us</a></li>
+										<li><a href="blog-list.html">Blog</a></li>
+                                        <li><a href="{{ route('loginpage') }}">Login</a></li>
+    									<li><a href="{{ route('registrationpage') }}">Register</a></li>
+										<li><a href="forgot-password.html">Forgot Password</a></li>
 									</ul>
 								</div>
 							</div>
-							<div class="col-xl-3 col-md-6">
+							<div class="col-lg-2">
 								<div class="footer-widget footer-menu">
 									<h2 class="footer-title">Help & Support</h2>
 									<ul>
-										<li><a href="javascript:;"><i class="fas fa-angle-right me-1"></i>Browse Candidates</a></li>
-										<li><a href="javascript:;"><i class="fas fa-angle-right me-1"></i>Employers Dashboard</a></li>
-										<li><a href="javascript:;"><i class="fas fa-angle-right me-1"></i>Job Packages</a></li>
-										<li><a href="javascript:;"><i class="fas fa-angle-right me-1"></i>Jobs Featured</a></li>
-										<li><a href="javascript:;"><i class="fas fa-angle-right me-1"></i>Post A Job</a></li>
+										<li><a href="chats.html">Chat</a></li>
+										<li><a href="faq.html">Faq</a></li>
+										<li><a href="review.html">Reviews</a></li>
+										<li><a href="privacy-policy.html">Privacy Policy</a></li>
+										<li><a href="term-condition.html">Terms of use</a></li>
 									</ul>
 								</div>
 							</div>
-							<div class="col-xl-2 col-md-6">
+							<div class="col-lg-2">
 								<div class="footer-widget footer-menu">
 									<h2 class="footer-title">Other Links</h2>
 									<ul>
-										<li><a href="freelancer-dashboard.html"><i class="fas fa-angle-right me-1"></i>Freelancers</a></li>
-										<li><a href="freelancer-portfolio.html"><i class="fas fa-angle-right me-1"></i>Freelancer Details</a></li>
-										<li><a href="project.html"><i class="fas fa-angle-right me-1"></i>Project</a></li>
-										<li><a href="project-details.html"><i class="fas fa-angle-right me-1"></i>Project Details</a></li>
-										<li><a href="post-project.html"><i class="fas fa-angle-right me-1"></i>Post Project</a></li>
+										<li><a href="freelancer-dashboard.html">Freelancers</a></li>
+										<li><a href="freelancer-portfolio.html">Freelancer Details</a></li>
+										<li><a href="project.html">Project</a></li>
+										<li><a href="project-details.html">Project Details</a></li>
+										<li><a href="post-project.html">Post Project</a></li>
 									</ul>
 								</div>
 							</div>
-							<div class="col-xl-4 col-md-6">
+							<div class="col-lg-3">
 								<div class="footer-widget footer-menu">
-									<h2 class="footer-title">Join our Newsletter</h2>
-									<p>We help our customers harness the power of AI to make smarter decisions</p>
-									<div class="banner-content aos aos-init aos-animate" data-aos="fade-up">
-										<form class="form" name="store" method="post" action="project.html">
-											<div class="form-inner">
-												<div class="input-group">
-													<input type="email" class="form-control" placeholder="Your Email address.....">
-													<button class="btn btn-primary sub-btn" type="submit"><i class="fas fa-long-arrow-alt-right long-arrow"></i></button>
-												</div>
-											</div>
-										</form>
-									</div>
-									<div class="social-icon d-flex">
-										<span>Follow us on : </span>
-										<ul>
-											<li><a href="#" class="icon" target="_blank"><i class="fab fa-facebook-f"></i> </a></li>
-											<li><a href="#" class="icon" target="_blank"><i class="fab fa-instagram"></i> </a></li>
-											<li><a href="#" class="icon" target="_blank"><i class="fab fa-twitter"></i> </a></li>
-										</ul>
+									<h2 class="footer-title">Mobile Application</h2>
+									<p>Download our App and get the latest Breaking News Alerts and latest headlines and daily articles near you.</p>
+									<div class="row g-2">
+										<div class="col">
+											<a href="#"><img class="img-fluid" src="{{asset('assets/img/app-store.svg')}}" alt="app-store"></a>
+										</div>
+										<div class="col">
+											<a href="#"><img class="img-fluid" src="{{asset('assets/img/google-play.svg')}}" alt="google-play"></a>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -251,23 +236,18 @@
 						<!-- Copyright -->
 						<div class="copyright">
 							<div class="row">
-								<div class="col-md-6 col-lg-6 ">
-									<div class="footer-bottom-logo">
-										<a href="{{ route('homepage') }}" class="menu-logo">
-											<img src="{{asset('assets/img/logo.png')}}" class="img-fluid" alt="Logo">
-										</a>
+								<div class="col-md-6 col-lg-6">
+									<div class="copyright-text">
+										<p class="mb-0">&copy; 2021 All Rights Reserved</p>
 									</div>
 								</div>
 								<div class="col-md-6 col-lg-6 right-text">
-									<ul class="nav footer-bottom-nav">
-										<li><a href="chats.html">Chat</a></li>
-										<li><a href="faq.html">Faq</a></li>
-										<li><a href="review.html">Reviews</a></li>
-										<li><a href="privacy-policy.html">Privacy Policy</a></li>
-										<li><a href="term-condition.html">Terms of use</a></li>
-									</ul>
-									<div class="copyright-text">
-										<p class="mb-0">Copyright 2023 © KofeJob. All right reserved. Powered by Dreamguys Technologies</p>
+									<div class="social-icon">
+										<ul>
+											<li><a href="#" class="icon" target="_blank"><i class="fab fa-instagram"></i> </a></li>
+											<li><a href="#" class="icon" target="_blank"><i class="fab fa-linkedin-in"></i> </a></li>
+											<li><a href="#" class="icon" target="_blank"><i class="fab fa-twitter"></i> </a></li>
+										</ul>
 									</div>
 								</div>
 							</div>
@@ -277,36 +257,22 @@
 				</div>
 				<!-- /Footer Bottom -->				
 			</footer>
-			<!-- /Footer -->
-		
-		</div>		
+			<!-- /Footer -->	
+			
+		</div>
 		<!-- /Main Wrapper -->
-		<button class="scroll-top scroll-to-target" data-target="html">
-			<span class="ti-angle-up"><img src="{{asset('assets/img/icon/top-icon.svg')}}" class="img-fluid" alt=""></span>
-		</button>
+	  
 		<!-- jQuery -->
-		<script src="{{asset('assets/js/jquery-3.6.1.min.js')}}"></script>
+		<script src="{{ asset('assets/js/jquery-3.6.1.min.js')}}"></script>
 		
 		<!-- Bootstrap Bundle JS -->
-		<script src="{{asset('assets/js/bootstrap.bundle.min.js')}}"></script>
-		
-		<!-- Owl Carousel -->
-		<script src="{{asset('assets/js/owl.carousel.min.js')}}"></script>	
-		
-		<!-- counterup JS -->
-		<script src="{{asset('assets/js/jquery.waypoints.js')}}"></script>
-		<script src="{{asset('assets/js/jquery.counterup.min.js')}}"></script>
-		
-		<!-- Aos -->
-		<script src="{{asset('assets/plugins/aos/aos.js')}}"></script>
-		
-		<!-- Select2 JS -->
-		<script src="{{asset('assets/plugins/select2/js/select2.min.js')}}"></script>
+		<script src="{{ asset('assets/js/bootstrap.bundle.min.js')}}"></script>
 		
 		<!-- Slick JS -->
-		<script src="{{asset('assets/js/slick.js')}}"></script>
+		<script src="{{ asset('assets/js/slick.js')}}"></script>
 		
 		<!-- Custom JS -->
-		<script src="{{asset('assets/js/script.js')}}"></script>
+		<script src="{{ asset('assets/js/script.js')}}"></script>
+		
 	</body>
 </html>

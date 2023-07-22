@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,3 +24,6 @@ use App\Http\Controllers\HomeController;
 // works
 //Route::get('/', 'App\Http\Controllers\HomeController@index')->name('homepage');
 Route::get('/',[HomeController::class,'index'])->name('homepage');
+
+Route::get('/login',[LoginController::class,'loginPage'])->name('loginpage');
+Route::get('/registration',[LoginController::class,'registrationPage'])->name('registrationpage');
