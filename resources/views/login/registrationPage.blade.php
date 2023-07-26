@@ -15,7 +15,7 @@
                                 <h3>Join Kofejob</h3>
                                 <p>Make the most of your professional life</p>
                             </div>
-                            <nav class="user-tabs mb-4">
+                            <!-- <nav class="user-tabs mb-4">
                                 <ul role="tablist" class="nav nav-pills nav-justified">
                                     <li class="nav-item">
                                         <a href="#developer" data-bs-toggle="tab" class="nav-link active">FREELANCER</a>
@@ -24,26 +24,27 @@
                                         <a href="#company" data-bs-toggle="tab" class="nav-link">COMPANY</a>
                                     </li>
                                 </ul>
-                            </nav>
+                            </nav> -->
                             <div class="tab-content pt-0">
                                 <div role="tabpanel" id="developer" class="tab-pane fade active show">
-                                    <form action="onboard-screen.html">										
+                                    <form action="{{route('registrationpost')}}" method = "post">	
+                                        @csrf									
                                         <div class="form-group form-focus">
-                                            <input type="email" class="form-control floating">
+                                            <input type="text" class="form-control floating" name="name">
                                             <label class="focus-label">User Name</label>
                                         </div>
                                         <div class="form-group form-focus">
-                                            <input type="email" class="form-control floating">
+                                            <input type="email" class="form-control floating" name="email">
                                             <label class="focus-label">Email </label>
                                         </div>
                                         <div class="form-group form-focus">
-                                            <input type="password" class="form-control floating">
+                                            <input type="password" class="form-control floating" name="password">
                                             <label class="focus-label">Password</label>
                                         </div>	
-                                        <div class="form-group form-focus mb-0">
+                                        <!-- <div class="form-group form-focus mb-0">
                                             <input type="password" class="form-control floating">
                                             <label class="focus-label">Confirm Password</label>
-                                        </div>	
+                                        </div>	 -->
                                         <div class="dont-have">
                                             <label class="custom_check">
                                                 <input type="checkbox" name="rem_password">

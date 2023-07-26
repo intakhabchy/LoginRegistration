@@ -16,13 +16,14 @@
                                 <h3>Welcome Back</h3>
                                 <p>Don't miss your next opportunity. Sign in to stay updated on your professional world.</p>
                             </div>
-                            <form action="dashboard.html">
+                            <form action="{{route('loginpost')}}" method = "post">
+                                @csrf
                                 <div class="form-group form-focus">
-                                    <input type="text" class="form-control floating">
+                                    <input type="text" class="form-control floating" name="email">
                                     <label class="focus-label">Email</label>
                                 </div>
                                 <div class="form-group form-focus">
-                                    <input type="password" class="form-control floating">
+                                    <input type="password" class="form-control floating" name="password">
                                     <label class="focus-label">Password</label>
                                 </div>											
                                 <div class="form-group">

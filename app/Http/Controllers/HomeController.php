@@ -11,4 +11,9 @@ class HomeController extends Controller
         // Your logic here
         return view('homepage.welcome');
     }
+
+    public function welcomePage()
+    {
+        return view('homepage.home');
+    }
 }

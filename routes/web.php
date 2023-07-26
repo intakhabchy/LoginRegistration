@@ -17,13 +17,19 @@ use App\Http\Controllers\LoginController;
 */
 
 // default while installed
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/welcomePage', function () {
+    return view('homepage.home');
+})->name('welcomepage');
 
 // works
 //Route::get('/', 'App\Http\Controllers\HomeController@index')->name('homepage');
+
 Route::get('/',[HomeController::class,'index'])->name('homepage');
 
 Route::get('/login',[LoginController::class,'loginPage'])->name('loginpage');
+Route::post('/login',[LoginController::class,'loginPost'])->name('loginpost');
+
 Route::get('/registration',[LoginController::class,'registrationPage'])->name('registrationpage');
+Route::post('/registration',[LoginController::class,'registrationPost'])->name('registrationpost');
+
+Route::get('/logout',[LoginController::class,'logout'])->name('logout');
