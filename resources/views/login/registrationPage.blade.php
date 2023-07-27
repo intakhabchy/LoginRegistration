@@ -15,6 +15,24 @@
                                 <h3>Join Kofejob</h3>
                                 <p>Make the most of your professional life</p>
                             </div>
+
+                            <div class="login-header text-center">
+                                @if($errors->any())
+                                    <div class="col 12">
+                                        @foreach($errors->all() as $error)
+                                            <div class="alert alert-danger">{{$error}}</div>
+                                        @endforeach
+                                    </div>
+                                @endif
+
+                                @if(session()->has('error'))
+                                    <div class="alert alert-danger">{{session('error')}}</div>
+                                @endif
+
+                                @if(session()->has('success'))
+                                    <div class="alert alert-success">{{session('success')}}</div>
+                                @endif
+                            </div>
                             <!-- <nav class="user-tabs mb-4">
                                 <ul role="tablist" class="nav nav-pills nav-justified">
                                     <li class="nav-item">

@@ -16,6 +16,24 @@
                                 <h3>Welcome Back</h3>
                                 <p>Don't miss your next opportunity. Sign in to stay updated on your professional world.</p>
                             </div>
+                            <div class="login-header text-center">
+                                @if($errors->any())
+                                    <div class="col 12">
+                                        @foreach($errors->all() as $error)
+                                            <div class="alert alert-danger">{{$error}}</div>
+                                        @endforeach
+                                    </div>
+                                @endif
+
+                                @if(session()->has('error'))
+                                    <div class="alert alert-danger">{{session('error')}}</div>
+                                @endif
+
+                                @if(session()->has('success'))
+                                    <div class="alert alert-success">{{session('success')}}</div>
+                                @endif
+                            </div>
+
                             <form action="{{route('loginpost')}}" method = "post">
                                 @csrf
                                 <div class="form-group form-focus">
