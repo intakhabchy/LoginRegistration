@@ -31,7 +31,7 @@ class LoginController extends Controller
         $credentials = $request->only('email','password');
 
         if(Auth::attempt($credentials)){
-            return redirect()->intended(route('welcomepage'));
+            return redirect()->intended(route('dashboard'));
         }
         return redirect()->intended(route('loginpage'))->with("error","Login details are not valid");
     }

@@ -33,3 +33,7 @@ Route::get('/registration',[LoginController::class,'registrationPage'])->name('r
 Route::post('/registration',[LoginController::class,'registrationPost'])->name('registrationpost');
 
 Route::get('/logout',[LoginController::class,'logout'])->name('logout');
+
+Route::get('/dashboard', function () {
+    return view('homepage.dashboard');
+})->name('dashboard');
