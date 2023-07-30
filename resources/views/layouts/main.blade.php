@@ -162,11 +162,39 @@
 							</li>
 						</ul>
 					</div>		 
+					@auth
+					<ul class="nav header-navbar-rht">	
+						<!-- User Menu -->
+						<li class="nav-item dropdown has-arrow main-drop account-item">
+							<a href="#" class="dropdown-toggle nav-link" data-bs-toggle="dropdown">
+								<span class="user-img">
+									<img src="{{asset('assets/img/img-04.jpg')}}" alt="">
+								</span>
+								<span>{{auth()->user()->name}}</span>
+							</a>
+							<div class="dropdown-menu emp">
+								<div class="drop-head">Account Details</div>	
+								<a class="dropdown-item" href="user-account-details.html"><i class="material-icons">verified_user</i> View profile</a>
+								<div class="drop-head">Projects Settings</div>	
+								<a class="dropdown-item" href="manage-projects.html"><i class="material-icons">business_center</i> Projects</a>
+								<a class="dropdown-item" href="favourites.html"><i class="material-icons">local_play</i> Favourites</a>
+								<a class="dropdown-item" href="review.html"><i class="material-icons">pie_chart</i> Reviews</a>
+								<div class="drop-head">Account Details</div>
+								<a class="dropdown-item" href="profile-settings.html"> <i class="material-icons">settings</i> Profile Settings</a>
+								<a class="dropdown-item" href="{{route('logout')}}"><i class="material-icons">power_settings_new</i> Logout</a>
+							</div>
+						</li>
+						<!-- /User Menu -->
+						<li><a href="post-project.html" class="login-btn">Post a Project </a></li>
+					</ul>
+					@else
 					<ul class="nav header-navbar-rht reg-head">												
 						<li><a href="{{ route('registrationpage') }}" class="reg-btn"><img src="{{asset('assets/img/icon/reg-icon.svg')}}" class="me-1" alt="icon"> Register</a></li>
 						<li><a href="{{ route('loginpage') }}" class="log-btn"><img src="{{asset('assets/img/icon/lock-icon.svg')}}" class="me-1" alt="icon"> Login</a></li>
 						<li><a href="post-project.html" class="login-btn">Post a Project </a></li>
 					</ul>
+					@endauth
+
 				</nav>
 			</header>
 			<!-- /Header -->

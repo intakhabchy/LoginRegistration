@@ -13,11 +13,19 @@ class LoginController extends Controller
 {
     public function loginPage()
     {
+        if(Auth::check())
+        {
+            return redirect()->intended(route('homepage'))->with("error","Try again");
+        }
         return view('login.loginPage');
     }
 
     public function registrationPage()
     {
+        if(Auth::check())
+        {
+            return redirect()->intended(route('homepage'))->with("error","Try again");
+        }
         return view('login.registrationPage');
     }
 
@@ -31,7 +39,7 @@ class LoginController extends Controller
         $credentials = $request->only('email','password');
 
         if(Auth::attempt($credentials)){
-            return redirect()->intended(route('dashboard'));
+            return redirect()->intended(route('homepage'));
         }
         return redirect()->intended(route('loginpage'))->with("error","Login details are not valid");
     }
@@ -60,6 +68,6 @@ class LoginController extends Controller
     {
         Session::flush();
         Auth::logout();
-        return redirect()->intended(route('loginpage'));
+        return redirect()->intended(route('homepage'));
     }
 }
