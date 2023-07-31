@@ -8,12 +8,6 @@ class HomeController extends Controller
 {
     public function index()
     {
-        // Your logic here
-        return view('homepage.welcome');
-    }
-
-    public function welcomePage()
-    {
         return view('homepage.home');
     }
 }

@@ -17,9 +17,9 @@ use App\Http\Controllers\LoginController;
 */
 
 // default while installed
-Route::get('/welcomePage', function () {
-    return view('homepage.home');
-})->name('welcomepage');
+// Route::get('/welcomePage', function () {
+//     return view('homepage.home');
+// })->name('welcomepage');
 
 // works
 //Route::get('/', 'App\Http\Controllers\HomeController@index')->name('homepage');
