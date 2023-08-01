@@ -61,7 +61,7 @@
 							<img src="{{asset('assets/img/logo.png')}}" class="img-fluid" alt="Logo">
 						</a>
 					</div>
-					<div class="main-menu-wrapper">
+					<div class="main-menu-wrapper" style="width:50%">
 						<div class="menu-header">
 							<a href="{{ route('homepage') }}" class="menu-logo">
 								<img src="{{asset('assets/img/logo.png')}}" class="img-fluid" alt="Logo">
@@ -70,96 +70,22 @@
 								<i class="fas fa-times"></i>
 							</a>
 						</div>
+						
 						<ul class="main-nav">
-							<li class="active has-submenu">
-								<a href="{{ route('homepage') }}">Home <i class="fas fa-chevron-down"></i></a>
-								<ul class="submenu">
-									<li class="active"><a href="{{ route('homepage') }}">Home</a></li>
-									<li><a href="index-2.html">Home-2</a></li>
-									<li><a href="index-3.html">Home-3</a></li>
-									<li><a href="index-4.html">Home-4</a></li>
-									<li><a href="index-5.html">Home-5</a></li>
-								</ul>
+							<li>
+								<a href="{{ route('homepage') }}">Home</a>
 							</li>
-							<li class="has-submenu">
-								<a href="">For Employers <i class="fas fa-chevron-down"></i></a>
-								<ul class="submenu">
-									<li class="has-submenu">
-										<a href="#">Freelancer</a>
-										<ul class="submenu">
-											<li><a href="developer.html">Freelancer</a></li>
-											<li><a href="developer-details.html">Freelancer Details</a></li>
-										</ul>
-									</li>
-									<li><a href="dashboard.html">Dashboard</a></li>	
-									<li><a href="company-profile.html">My Profile</a></li>	
-									<li><a href="company-details.html">Company Details</a></li>	
-									<li><a href="manage-projects.html">Projects</a></li>
-									<li><a href="favourites.html">Favourites</a></li>
-									<li><a href="membership-plans.html">Membership</a></li>
-									<li><a href="milestones.html">Milestones</a></li>
-									<li><a href="chats.html">Chats</a></li>
-									<li><a href="review.html">Review</a></li>			
-									<li><a href="deposit-funds.html">Payments</a></li>							
-									<li><a href="verify-identity.html">Verify Identity</a></li>								
-									<li><a href="profile-settings.html">Settings</a></li>								
-								</ul>
-							</li>
-							<li class="has-submenu">
-								<a href="">For Freelancer <i class="fas fa-chevron-down"></i></a>
-								<ul class="submenu">
-									<li class="has-submenu">
-										<a href="#">Projects</a>
-										<ul class="submenu">
-											<li><a href="project.html">Projects</a></li>
-											<li><a href="project-details.html">Project Details</a></li>
-										</ul>
-									</li>
-									<li><a href="freelancer-dashboard.html">Dashboard</a></li>
-									<li><a href="developer-profile.html">My Profile</a></li>	
-									<li><a href="developer-details.html">Freelancer Details</a></li>
-									<li><a href="freelancer-project-proposals.html">Projects</a></li>
-									<li><a href="freelancer-favourites.html">Favourites</a></li>
-									<li><a href="freelancer-membership.html">Membership</a></li>
-									<li><a href="freelancer-change-password.html">Change Password</a></li>
-									<li><a href="freelancer-chats.html">Chats</a></li>
-									<li><a href="freelancer-review.html">Review</a></li>			
-									<li><a href="freelancer-withdraw-money.html">Payments</a></li>							
-									<li><a href="freelancer-verify-identity.html">Verify Identity</a></li>				
-									<li><a href="freelancer-profile-settings.html">Settings</a></li>				
-								</ul>
-							</li>
-							<li class="has-submenu">
-								<a href="">Pages <i class="fas fa-chevron-down"></i></a>
-								<ul class="submenu">
-									<li><a href="about.html">About us</a></li>
-									<li><a href="blank-page.html">Starter Page</a></li>
-									<li><a href="404-page.html">404 Page</a></li>
-									<li class="has-submenu">
-										<a href="invoices.html">Invoices</a>
-										<ul class="submenu">
-											<li><a href="freelancer-invoices.html">Invoices</a></li>
-											<li><a href="view-invoice.html">Invoice View</a></li>
-										</ul>
-									</li>
-									<li><a href="{{ route('loginpage') }}">Login</a></li>
-									<li><a href="{{ route('registrationpage') }}">Register</a></li>
-									<li><a href="onboard-screen.html">Onboard Screen</a></li>
-									<li><a href="forgot-password.html">Forgot Password</a></li>
-									<li><a href="change-password.html">Change Password</a></li>									
-								</ul>
-							</li>
-							<li class="has-submenu">
-								<a href="">Blog <i class="fas fa-chevron-down"></i></a>
-								<ul class="submenu">
-									<li><a href="blog-list.html">Blog List</a></li>
-									<li><a href="blog-grid.html">Blog Grid</a></li>
-									<li><a href="blog-details.html">Blog Details</a></li>
-								</ul>
+							@auth
+							<li>
+								<a href="{{ route('dashboard') }}">Dashboard</a>
 							</li>
 							<li>
-								<a href="admin/index.html" target="_blank">Admin</a>
+								<a href="">Profile</a>
 							</li>
+							<li>
+								<a href="">Projects</a>
+							</li>
+							@endauth
 						</ul>
 					</div>		 
 					@auth

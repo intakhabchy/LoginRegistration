@@ -49,7 +49,7 @@
 							</a>
 						</div>
 						<ul class="main-nav">
-							<li class="has-submenu">
+							<!-- <li class="has-submenu">
 								<a href="{{ route('homepage') }}">Home <i class="fas fa-chevron-down"></i></a>
 								<ul class="submenu">
 									<li ><a href="{{ route('homepage') }}">Home</a></li>
@@ -58,8 +58,8 @@
 									<li><a href="index-4.html">Home-4</a></li>
 									<li><a href="index-5.html">Home-5</a></li>
 								</ul>
-							</li>
-							<li class="has-submenu">
+							</li> -->
+							<!-- <li class="has-submenu">
 								<a href="">For Employers<i class="fas fa-chevron-down"></i></a>
 								<ul class="submenu">
 									<li class="has-submenu">
@@ -82,8 +82,8 @@
 									<li><a href="verify-identity.html">Verify Identity</a></li>								
 									<li><a href="profile-settings.html">Settings</a></li>								
 								</ul>
-							</li>
-							<li class="has-submenu">
+							</li> -->
+							<!-- <li class="has-submenu">
 								<a href="">For Freelancer<i class="fas fa-chevron-down"></i></a>
 								<ul class="submenu">
 									<li class="has-submenu">
@@ -106,8 +106,8 @@
 									<li><a href="freelancer-verify-identity.html">Verify Identity</a></li>				
 									<li><a href="freelancer-profile-settings.html">Settings</a></li>				
 								</ul>
-							</li>
-							<li class="has-submenu active">
+							</li> -->
+							<!-- <li class="has-submenu active">
 								<a href="">Pages <i class="fas fa-chevron-down"></i></a>
 								<ul class="submenu">
 									<li><a href="about.html">About us</a></li>
@@ -126,18 +126,18 @@
 									<li><a href="forgot-password.html">Forgot Password</a></li>
 									<li><a href="change-password.html">Change Password</a></li>									
 								</ul>
-							</li>
-							<li class="has-submenu">
+							</li> -->
+							<!-- <li class="has-submenu">
 								<a href="">Blog <i class="fas fa-chevron-down"></i></a>
 								<ul class="submenu">
 									<li><a href="blog-list.html">Blog List</a></li>
 									<li><a href="blog-grid.html">Blog Grid</a></li>
 									<li><a href="blog-details.html">Blog Details</a></li>
 								</ul>
-							</li>
-							<li>
+							</li> -->
+							<!-- <li>
 								<a href="admin/index.html" target="_blank">Admin</a>
-							</li>
+							</li> -->
 						</ul>
 					</div>		 
 					<ul class="nav header-navbar-rht">					

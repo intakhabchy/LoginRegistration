@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,6 +35,4 @@ Route::post('/registration',[LoginController::class,'registrationPost'])->name('
 
 Route::get('/logout',[LoginController::class,'logout'])->name('logout');
 
-Route::get('/dashboard', function () {
-    return view('homepage.dashboard');
-})->name('dashboard');
+Route::get('/dashboard',[DashboardController::class,'index'])->name('dashboard');
