@@ -35,4 +35,4 @@ Route::post('/registration',[LoginController::class,'registrationPost'])->name('
 
 Route::get('/logout',[LoginController::class,'logout'])->name('logout');
 
-Route::get('/dashboard',[DashboardController::class,'index'])->name('dashboard');
+Route::get('/dashboard',[DashboardController::class,'index'])->name('dashboard')->middleware('auth');
