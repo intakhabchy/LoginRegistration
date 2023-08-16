@@ -4,32 +4,26 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
 		<title>KofeJob</title>
-		
+
+		<!-- New code -->
 		<!-- Favicon -->
 		<link rel="shortcut icon" href="{{asset('assets/img/favicon.png')}}" type="image/x-icon">
-		
+
 		<!-- Bootstrap CSS -->
 		<link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">
-				
+
 		<!-- Fontawesome CSS -->
 		<link rel="stylesheet" href="{{asset('assets/plugins/fontawesome/css/fontawesome.min.css')}}">
 		<link rel="stylesheet" href="{{asset('assets/plugins/fontawesome/css/all.min.css')}}">
-		
-		<!-- Owl Carousel CSS -->
-		<link rel="stylesheet" href="{{asset('assets/css/owl.carousel.min.css')}}">
-		<link rel="stylesheet" href="{{asset('assets/css/owl.theme.default.min.css')}}">
-		
-		<link rel="stylesheet" href="{{asset('assets/css/animate.min.css')}}">
-		<link rel="stylesheet" href="{{asset('assets/css/animate.css')}}">
-		
-		<!-- Aos CSS -->
-		<link rel="stylesheet" href="{{asset('assets/plugins/aos/aos.css')}}">
-		
+
 		<!-- Select2 CSS -->
 		<link rel="stylesheet" href="{{asset('assets/plugins/select2/css/select2.min.css')}}">
-		
+
 		<!-- Main CSS -->
 		<link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
+
+		@yield('index_css')
+		<!-- // -->
 	</head>		
 	<body class="home-page bg-one">
 		
@@ -238,29 +232,41 @@
 		<button class="scroll-top scroll-to-target" data-target="html">
 			<span class="ti-angle-up"><img src="{{asset('assets/img/icon/top-icon.svg')}}" class="img-fluid" alt=""></span>
 		</button>
+
 		<!-- jQuery -->
-		<script src="{{asset('assets/js/jquery-3.6.1.min.js')}}"></script>
+		<!-- <script src="{{asset('assets/js/jquery-3.6.1.min.js')}}"></script> -->
 		
 		<!-- Bootstrap Bundle JS -->
-		<script src="{{asset('assets/js/bootstrap.bundle.min.js')}}"></script>
+		<!-- <script src="{{asset('assets/js/bootstrap.bundle.min.js')}}"></script> -->
 		
 		<!-- Owl Carousel -->
-		<script src="{{asset('assets/js/owl.carousel.min.js')}}"></script>	
+		<!-- <script src="{{asset('assets/js/owl.carousel.min.js')}}"></script>	 -->
 		
 		<!-- counterup JS -->
-		<script src="{{asset('assets/js/jquery.waypoints.js')}}"></script>
-		<script src="{{asset('assets/js/jquery.counterup.min.js')}}"></script>
+		<!-- <script src="{{asset('assets/js/jquery.waypoints.js')}}"></script> -->
+		<!-- <script src="{{asset('assets/js/jquery.counterup.min.js')}}"></script> -->
 		
 		<!-- Aos -->
-		<script src="{{asset('assets/plugins/aos/aos.js')}}"></script>
+		<!-- <script src="{{asset('assets/plugins/aos/aos.js')}}"></script> -->
 		
 		<!-- Select2 JS -->
-		<script src="{{asset('assets/plugins/select2/js/select2.min.js')}}"></script>
+		<!-- <script src="{{asset('assets/plugins/select2/js/select2.min.js')}}"></script> -->
 		
 		<!-- Slick JS -->
-		<script src="{{asset('assets/js/slick.js')}}"></script>
+		<!-- <script src="{{asset('assets/js/slick.js')}}"></script> -->
 		
 		<!-- Custom JS -->
-		<script src="{{asset('assets/js/script.js')}}"></script>
+		<!-- <script src="{{asset('assets/js/script.js')}}"></script> -->
+
+		<!-- New code -->
+		<!-- jQuery -->
+		<script src="{{asset('assets/js/jquery-3.6.1.min.js')}}"></script>
+
+		<!-- Bootstrap Bundle JS -->
+		<script src="{{asset('assets/js/bootstrap.bundle.min.js')}}"></script>
+
+		@yield('index_js')
+		@yield('dashboard_js')
+		<!-- // -->
 	</body>
 </html>

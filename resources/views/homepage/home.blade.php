@@ -1,5 +1,17 @@
 @extends('layouts.main')
 
+@section('index_css')
+	<!-- Owl Carousel CSS -->
+	<link rel="stylesheet" href="{{asset('assets/css/owl.carousel.min.css')}}">
+	<link rel="stylesheet" href="{{asset('assets/css/owl.theme.default.min.css')}}">
+
+	<link rel="stylesheet" href="{{asset('assets/css/animate.min.css')}}">
+	<link rel="stylesheet" href="{{asset('assets/css/animate.css')}}">
+
+	<!-- Aos CSS -->
+	<link rel="stylesheet" href="{{asset('assets/plugins/aos/aos.css')}}">
+@endsection
+
 @section('content')
 
 <!-- Home Banner -->
@@ -1029,4 +1041,25 @@
 	</div>
 </section>
 			
+@endsection
+
+@section('index_js')
+	<!-- Owl Carousel -->
+	<script src="{{asset('assets/js/owl.carousel.min.js')}}"></script>	
+
+	<!-- counterup JS -->
+	<script src="{{asset('assets/js/jquery.waypoints.js')}}"></script>
+	<script src="{{asset('assets/js/jquery.counterup.min.js')}}"></script>
+
+	<!-- Aos -->
+	<script src="{{asset('assets/plugins/aos/aos.js')}}"></script>
+
+	<!-- Select2 JS -->
+	<script src="{{asset('assets/plugins/select2/js/select2.min.js')}}"></script>
+
+	<!-- Slick JS -->
+	<script src="{{asset('assets/js/slick.js')}}"></script>
+
+	<!-- Custom JS -->
+	<script src="{{asset('assets/js/script.js')}}"></script>
 @endsection
