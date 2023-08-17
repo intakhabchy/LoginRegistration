@@ -8,6 +8,6 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        return view('homepage.dashboard');
+        return view('homepage.dashboard', ['useHeaderBg' => true]);
     }
 }

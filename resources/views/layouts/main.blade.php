@@ -41,7 +41,7 @@
 					
 			<!-- Start Navigation -->
 			<!-- Header -->
-			<header class="header">
+			<header class="header @if(!empty($useHeaderBg) && $useHeaderBg) header-bg @endif">
 				<nav class="navbar navbar-expand-lg header-nav">
 					<div class="navbar-header">
 						<a id="mobile_btn" href="javascript:void(0);">
