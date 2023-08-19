@@ -44,54 +44,20 @@
 										<i class="material-icons">verified_user</i> Dashboard
 									</a>
 								</li>
+
 								<li class="nav-item">
 									<a href="manage-projects.html" class="nav-link">
-										<i class="material-icons">business_center</i> Projects
+										<i class="material-icons">business_center</i> Book
 									</a>
 								</li>
 								<li class="nav-item">
 									<a href="favourites.html" class="nav-link">
-										<i class="material-icons">local_play</i> Favourites
+										<i class="material-icons">person_pin</i> Autor
 									</a>
 								</li>
 								<li class="nav-item">
-									<a href="review.html" class="nav-link">
-										<i class="material-icons">record_voice_over</i> Reviews
-									</a>
-								</li>
-								<li class="nav-item">
-									<a href="chats.html" class="nav-link">
-										<i class="material-icons">chat</i> Messages
-									</a>
-								</li>
-								<li class="nav-item">
-									<a href="membership-plans.html" class="nav-link">
-										<i class="material-icons">person_add</i> Membership
-									</a>
-								</li>
-								<li class="nav-item">
-									<a href="milestones.html" class="nav-link">
-										<i class="material-icons">pie_chart</i> Milestones
-									</a>
-								</li>
-								<li class="nav-item">
-									<a href="verify-identity.html" class="nav-link">
-										<i class="material-icons">person_pin</i> Verify Identity
-									</a>
-								</li>
-								<li class="nav-item">
-									<a href="deposit-funds.html" class="nav-link">
-										<i class="material-icons">wifi_tethering</i> Payments
-									</a>
-								</li>
-								<li class="nav-item">
-									<a href="profile-settings.html" class="nav-link">
-										<i class="material-icons">settings</i> Settings
-									</a>
-								</li>
-								<li class="nav-item">
-									<a href="index.html" class="nav-link">
-										<i class="material-icons">power_settings_new</i> Logout
+									<a href="{{ route('publisherlist') }}" class="nav-link">
+										<i class="material-icons">local_play</i> Publisher
 									</a>
 								</li>
 							</ul>

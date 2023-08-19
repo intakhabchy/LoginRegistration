@@ -36,3 +36,5 @@ Route::post('/registration',[LoginController::class,'registrationPost'])->name('
 Route::get('/logout',[LoginController::class,'logout'])->name('logout');
 
 Route::get('/dashboard',[DashboardController::class,'index'])->name('dashboard')->middleware('auth');
+
+Route::get('/publisher_list',[DashboardController::class,'publisher_list'])->name('publisherlist')->middleware('auth');
