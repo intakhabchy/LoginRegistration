@@ -34,7 +34,7 @@
 							<a href="user-account-details.html"><img alt="profile image" src="assets/img/img-04.jpg" class="avatar-lg rounded-circle"></a>
 							<div class="ms-sm-3 ms-md-0 ms-lg-3 mt-2 mt-sm-0 mt-md-2 mt-lg-0">
 								<p class="mb-2">Welcome,</p>
-								<a href="user-account-details.html"><h3 class="mb-0">John Danie S.</h3></a>
+								<a href="user-account-details.html"><h3 class="mb-0">{{auth()->user()->name}}</h3></a>
 								<p class="mb-0">@johndaniee</p>
 							</div>
 						</div>
@@ -68,26 +68,6 @@
 				<!-- /sidebar -->
 				
 				<div class="col-xl-9 col-md-8">
-					<nav class="user-tabs mb-4">
-						<ul class="nav nav-tabs nav-tabs-bottom nav-justified">
-							<li class="nav-item">
-								<a class="nav-link" href="view-project-detail.html">Overview & Discussions</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="milestones.html">Milestones</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link active" href="tasks.html">Tasks</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="files.html">Files</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="project-payment.html">Payments</a>
-							</li>
-						</ul>
-					</nav>
-					
 					<!-- project list -->
 					<div class="my-projects-view">
 						<div class="row">
@@ -177,5 +157,113 @@
 		</div>
 	</div>				
 	<!-- /Page Content -->
+
+	<!-- The Modal -->
+	<div class="modal fade" id="file">
+		<div class="modal-dialog modal-dialog-centered modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">Add Files</h4>
+					<span class="modal-close"><a href="#" data-bs-dismiss="modal" aria-label="Close"><i class="far fa-times-circle orange-text"></i></a></span>
+				</div>
+				<div class="modal-body">		
+					<form action="tasks.html">
+						<div class="modal-info">
+							<div class="row">
+								<div class="col-md-6">
+									<div class="form-group">
+										<label>Add Task</label>
+										<input type="text" class="form-control">
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<label>Select Milestone</label>
+										<input type="text" class="form-control">
+									</div>
+								</div>
+								<div class="col-md-12">
+									<div class="form-group">
+										<label>Due Date</label>
+										<input type="text" class="form-control">
+									</div>
+								</div>
+								<div class="col-md-12">
+									<div class="form-group">
+										<label>Description</label>
+										<textarea class="form-control" rows="5"></textarea>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<select class="form-control select">
+										<option>To do </option>
+										<option>Completed</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="submit-section text-end">
+							<button type="submit" class="btn btn-primary submit-btn">Submit</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- /The Modal -->
+
+	<!-- The Modal -->
+	<div class="modal fade" id="edit-file">
+		<div class="modal-dialog modal-dialog-centered modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">Edit Files</h4>
+					<span class="modal-close"><a href="#" data-bs-dismiss="modal" aria-label="Close"><i class="far fa-times-circle orange-text"></i></a></span>
+				</div>
+				<div class="modal-body">		
+					<form action="tasks.html">
+						<div class="modal-info">
+							<div class="row">
+								<div class="col-md-6">
+									<div class="form-group">
+										<label>Add Task</label>
+										<input type="text" class="form-control" value="Research">
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<label>Select Milestone</label>
+										<input type="text" class="form-control"  value="Research">
+									</div>
+								</div>
+								<div class="col-md-12">
+									<div class="form-group">
+										<label>Due Date</label>
+										<input type="text" class="form-control"  value="20th October 2021">
+									</div>
+								</div>
+								<div class="col-md-12">
+									<div class="form-group">
+										<label>Description</label>
+										<textarea class="form-control" rows="5">Lorem ipsum dolor sit amet, consectetur adipiscing elit</textarea>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<select class="form-control select">
+										<option>To do </option>
+										<option selected>Completed</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="submit-section text-end">
+							<button type="submit" class="btn btn-primary submit-btn">Submit</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- /The Modal -->
    
 @endsection
