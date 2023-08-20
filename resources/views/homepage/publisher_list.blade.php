@@ -80,7 +80,7 @@
 													<h5 class="card-title">Tasks</h5>
 												</div>
 												<div class="col-auto">
-													<a data-bs-toggle="modal" href="#file" class="btn btn-primary btn-rounded"><i class="fas fa-plus"></i> Add tasks</a>
+													<a data-bs-toggle="modal" href="#file" class="btn btn-primary btn-rounded"><i class="fas fa-plus"></i> Add Publisher</a>
 												</div>
 											</div>
 										</div>
@@ -163,42 +163,56 @@
 		<div class="modal-dialog modal-dialog-centered modal-lg">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h4 class="modal-title">Add Files</h4>
+					<h4 class="modal-title">Add Publisher</h4>
 					<span class="modal-close"><a href="#" data-bs-dismiss="modal" aria-label="Close"><i class="far fa-times-circle orange-text"></i></a></span>
 				</div>
 				<div class="modal-body">		
 					<form action="tasks.html">
 						<div class="modal-info">
 							<div class="row">
-								<div class="col-md-6">
-									<div class="form-group">
-										<label>Add Task</label>
-										<input type="text" class="form-control">
-									</div>
-								</div>
-								<div class="col-md-6">
-									<div class="form-group">
-										<label>Select Milestone</label>
-										<input type="text" class="form-control">
-									</div>
-								</div>
 								<div class="col-md-12">
 									<div class="form-group">
-										<label>Due Date</label>
+										<label><b>Publisher Name</b></label>
 										<input type="text" class="form-control">
 									</div>
 								</div>
+							
 								<div class="col-md-12">
 									<div class="form-group">
-										<label>Description</label>
-										<textarea class="form-control" rows="5"></textarea>
+										<label><b>Address</b></label>
+										<input type="text" class="form-control">
 									</div>
 								</div>
 								<div class="col-md-6">
-									<select class="form-control select">
-										<option>To do </option>
-										<option>Completed</option>
-									</select>
+									<div class="form-group">
+										<label><b>Contact Number</b></label>
+										<input type="text" class="form-control">
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<label><b>Email</b></label>
+										<input type="text" class="form-control">
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<label><b>Website</b></label>
+										<input type="text" class="form-control">
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<label><b>Contact Person</b></label>
+										<input type="text" class="form-control">
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<label><b>Active</b></label>
+										<input type="radio" class="form-check-input">Yes
+										<input type="radio" class="form-check-input">No
+									</div>
 								</div>
 							</div>
 						</div>
