@@ -6,7 +6,7 @@
 		<title>KofeJob</title>
 		
 		<!-- Favicon -->
-        <link rel="shortcut icon" href="{{asset('assets/img/favicon.png')}}" type="image/x-icon">
+		<link rel="shortcut icon" href="{{asset('assets/img/favicon.png')}}" type="image/x-icon">
 		
 		<!-- Bootstrap CSS -->
 		<link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">
@@ -15,8 +15,8 @@
 		<link rel="stylesheet" href="{{asset('assets/plugins/fontawesome/css/fontawesome.min.css')}}">
 		<link rel="stylesheet" href="{{asset('assets/plugins/fontawesome/css/all.min.css')}}">
 		
-		<!-- Datetimepicker CSS -->
-		<link rel="stylesheet" href="{{asset('assets/css/bootstrap-datetimepicker.min.css')}}">
+		<!-- Select2 CSS -->
+		<link rel="stylesheet" href="{{asset('assets/plugins/select2/css/select2.min.css')}}">
 		
 		<!-- Datatables CSS -->
 		<link rel="stylesheet" href="{{asset('assets/plugins/datatables/datatables.min.css')}}">
@@ -46,7 +46,7 @@
 						</a>
 					</div>
 					<div class="main-menu-wrapper">
-                        <div class="menu-header">
+						<div class="menu-header">
 							<a href="{{ route('homepage') }}" class="menu-logo">
 								<img src="{{asset('assets/img/logo.png')}}" class="img-fluid" alt="Logo">
 							</a>
@@ -227,40 +227,25 @@
 						<span class="modal-close"><a href="#" data-bs-dismiss="modal" aria-label="Close"><i class="far fa-times-circle orange-text"></i></a></span>
 					</div>
 					<div class="modal-body">		
-						<form action="milestones.html">
+						<form action="tasks.html">
 							<div class="modal-info">
 								<div class="row">
 									<div class="col-md-6">
 										<div class="form-group">
-											<label>Milestone Name</label>
+											<label>Add Task</label>
 											<input type="text" class="form-control">
 										</div>
 									</div>
 									<div class="col-md-6">
 										<div class="form-group">
-											<label>Budget</label>
+											<label>Select Milestone</label>
 											<input type="text" class="form-control">
-										</div>
-									</div>
-									<div class="col-md-6">
-										<div class="form-group">
-											<label>Start Date</label>
-											<input type="text" class="form-control datetimepicker">
-										</div>
-									</div>
-									<div class="col-md-6">
-										<div class="form-group">
-											<label>End Date</label>
-											<input type="text" class="form-control datetimepicker">
 										</div>
 									</div>
 									<div class="col-md-12">
 										<div class="form-group">
-											<label>Progress</label>
-											<div class="slidecontainer">
-												<input type="range" min="1" max="100" value="50" class="rangslider" id="myRange">
-												<p class="text-muted">Progress <span id="demo"></span> %</p>
-											</div>
+											<label>Due Date</label>
+											<input type="text" class="form-control">
 										</div>
 									</div>
 									<div class="col-md-12">
@@ -268,6 +253,12 @@
 											<label>Description</label>
 											<textarea class="form-control" rows="5"></textarea>
 										</div>
+									</div>
+									<div class="col-md-6">
+										<select class="form-control select">
+											<option>To do </option>
+											<option>Completed</option>
+										</select>
 									</div>
 								</div>
 							</div>
@@ -279,23 +270,77 @@
 				</div>
 			</div>
 		</div>
+		<!-- /The Modal -->
+		
+		<!-- The Modal -->
+		<div class="modal fade" id="edit-file">
+			<div class="modal-dialog modal-dialog-centered modal-lg">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title">Edit Files</h4>
+						<span class="modal-close"><a href="#" data-bs-dismiss="modal" aria-label="Close"><i class="far fa-times-circle orange-text"></i></a></span>
+					</div>
+					<div class="modal-body">		
+						<form action="tasks.html">
+							<div class="modal-info">
+								<div class="row">
+									<div class="col-md-6">
+										<div class="form-group">
+											<label>Add Task</label>
+											<input type="text" class="form-control" value="Research">
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="form-group">
+											<label>Select Milestone</label>
+											<input type="text" class="form-control"  value="Research">
+										</div>
+									</div>
+									<div class="col-md-12">
+										<div class="form-group">
+											<label>Due Date</label>
+											<input type="text" class="form-control"  value="20th October 2021">
+										</div>
+									</div>
+									<div class="col-md-12">
+										<div class="form-group">
+											<label>Description</label>
+											<textarea class="form-control" rows="5">Lorem ipsum dolor sit amet, consectetur adipiscing elit</textarea>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<select class="form-control select">
+											<option>To do </option>
+											<option selected>Completed</option>
+										</select>
+									</div>
+								</div>
+							</div>
+							<div class="submit-section text-end">
+								<button type="submit" class="btn btn-primary submit-btn">Submit</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /The Modal -->
 	  
 		<!-- jQuery -->
 		<script src="{{asset('assets/js/jquery-3.6.1.min.js')}}"></script>
 		
-		<!-- Bootstrap Core JS -->
+		<!-- Bootstrap Bundle JS -->
 		<script src="{{asset('assets/js/bootstrap.bundle.min.js')}}"></script>
 		
-		<!-- Datetimepicker JS -->
-		<script src="{{asset('assets/js/moment.min.js')}}"></script>
-		<script src="{{asset('assets/js/bootstrap-datetimepicker.min.js')}}"></script>
+		<!-- Select2 JS -->
+		<script src="{{asset('assets/plugins/select2/js/select2.min.js')}}"></script>
+		
+		<!-- Slick JS -->
+		<script src="{{asset('assets/js/slick.js')}}"></script>
 		
 		<!-- Sticky Sidebar JS -->
         <script src="{{asset('assets/plugins/theia-sticky-sidebar/ResizeSensor.js')}}"></script>
         <script src="{{asset('assets/plugins/theia-sticky-sidebar/theia-sticky-sidebar.js')}}"></script>
-
-		<!-- Slimscroll JS -->
-		<script src="{{asset('assets/plugins/slimscroll/jquery.slimscroll.min.js')}}"></script>
 		
 		<!-- Datatables JS -->
 		<script src="{{asset('assets/plugins/datatables/jquery.dataTables.min.js')}}"></script>

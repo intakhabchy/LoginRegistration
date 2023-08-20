@@ -1,6 +1,7 @@
 @extends('layouts.layoutDashboard')
 
 @section('content')
+			
 	<!-- Breadcrumb -->
 	<div class="bread-crumb-bar">
 		<div class="container">
@@ -30,10 +31,10 @@
 				<div class="col-xl-3 col-md-4 theiaStickySidebar">
 					<div class="settings-widget">
 						<div class="settings-header d-sm-flex flex-row flex-wrap text-center text-sm-start align-items-center">
-							<a href="user-account-details.html"><img alt="profile image" src="{{asset('assets/img/img-04.jpg')}}" class="avatar-lg rounded-circle"></a>
+							<a href="user-account-details.html"><img alt="profile image" src="assets/img/img-04.jpg" class="avatar-lg rounded-circle"></a>
 							<div class="ms-sm-3 ms-md-0 ms-lg-3 mt-2 mt-sm-0 mt-md-2 mt-lg-0">
 								<p class="mb-2">Welcome,</p>
-								<a href="user-account-details.html"><h3 class="mb-0">{{auth()->user()->name}}</h3></a>
+								<a href="user-account-details.html"><h3 class="mb-0">John Danie S.</h3></a>
 								<p class="mb-0">@johndaniee</p>
 							</div>
 						</div>
@@ -73,10 +74,10 @@
 								<a class="nav-link" href="view-project-detail.html">Overview & Discussions</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link active" href="milestones.html">Milestones</a>
+								<a class="nav-link" href="milestones.html">Milestones</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="tasks.html">Tasks</a>
+								<a class="nav-link active" href="tasks.html">Tasks</a>
 							</li>
 							<li class="nav-item">
 								<a class="nav-link" href="files.html">Files</a>
@@ -87,91 +88,80 @@
 						</ul>
 					</nav>
 					
+					<!-- project list -->
 					<div class="my-projects-view">
 						<div class="row">
 							<div class="col-lg-12">
 								<div class="">
-									<div class="card ">
+									<div class="card">
 										<div class="card-header">
 											<div class="row justify-content-between align-items-center">
 												<div class="col">
-													<h5 class="card-title">Milestone</h5>
+													<h5 class="card-title">Tasks</h5>
 												</div>
 												<div class="col-auto">
-													<a data-bs-toggle="modal" href="#file" class="btn btn-primary btn-rounded"><i class="fas fa-plus"></i> Add Milestone</a>
+													<a data-bs-toggle="modal" href="#file" class="btn btn-primary btn-rounded"><i class="fas fa-plus"></i> Add tasks</a>
 												</div>
 											</div>
 										</div>
 										<div class="card-body">
-											<div class="table-responsive">
-												<table class="table table-center table-hover mb-0 datatable">
+											<div class="table-responsive table-box">
+												<table class="table table-center table-hover datatable">
 													<thead class="thead-pink">
 														<tr>
-															<th>Name</th>
-															<th>Budget</th>
-															<th>Progress</th>
-															<th>Start Date</th>
-															<th>End Date</th>
-															<th>Paid</th>
+															<th>Task Name</th>
+															<th>Milestone</th>
+															<th>Due Date</th>
+															<th>Description</th>
+															<th>Status</th>
 															<th>Action</th>
 														</tr>
 													</thead>
 													<tbody>
 														<tr>
 															<td>Research</td>
-															<td>$60</td>
+															<td>Research</td>
+															<td> 20th Oct 2021	 </td>
+															<td><p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+																<a href="#" class="read-text">Readmore</a>
+															</td>
+															<td class="text-success">Completed</td>
 															<td>
-																<p class="mb-0 orange-text text-center">25%</p>
-																<div class="progress progress-md mb-0">
-																	<div class="progress-bar bg-danger" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+																<div class="action">
+																	<a data-bs-toggle="modal" href="#edit-file"  class="file-circle me-2"><i class="fas fa-pen"></i></a>
+																	<a href="javascript:void(0);" class="file-circle"><i class="fas fa-trash-alt"></i></a>
 																</div>
 															</td>
-															<td>20th October 2021</td>
-															<td>31th October 2021</td>
-															<td><span class="badge badge-pill bg-success-dark">Paid</span></td>
-															<td><a href="javascript:void(0);"><span class="badge badge-pill bg-grey-light">Pay now</span></a></td>
 														</tr>
 														<tr>
 															<td>Design</td>
-															<td>$60</td>
+															<td>Design</td>
+															<td> 21th Nov 2021 </td>
+															<td><p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+																<a href="#" class="read-text">Readmore</a>
+															</td>
+															<td class="text-danger">Todo</td>
 															<td>
-																<p class="mb-0 orange-text text-center">50%</p>
-																<div class="progress progress-md mb-0">
-																	<div class="progress-bar bg-danger" role="progressbar" style="width: 50%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+																<div class="action">
+																	<a data-bs-toggle="modal" href="#edit-file" class="file-circle me-2"><i class="fas fa-pen"></i></a>
+																	<a href="javascript:void(0);" class="file-circle"><i class="fas fa-trash-alt"></i></a>
 																</div>
 															</td>
-															<td>02th October 2021</td>
-															<td>31th October 2021</td>
-															<td><span class="badge badge-pill bg-success-dark">Paid</span></td>
-															<td><a href="javascript:void(0);"><span class="badge badge-pill bg-pink-dark">Pay now</span></a></td>
-														</tr>
-														<tr>
-															<td>Research</td>
-															<td>$60</td>
-															<td>
-																<p class="mb-0 orange-text text-center">75%</p>
-																<div class="progress progress-md mb-0">
-																	<div class="progress-bar bg-danger" role="progressbar" style="width: 75%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-																</div>
-															</td>
-															<td>05th October 2021</td>
-															<td>12th October 2021</td>
-															<td><span class="badge badge-pill bg-grey-dark">UnPaid</span></td>
-															<td><a href="javascript:void(0);"><span class="badge badge-pill bg-pink-dark">Pay now</span></a></td>
 														</tr>
 														<tr>
 															<td>Development</td>
-															<td>$50</td>
+															<td>Development</td>
+															<td> 23rd Nov 2021 </td>
+															<td><p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+																<a href="#" class="read-text">Readmore</a>
+															</td>
+															<td class="text-success">Completed</td>
 															<td>
-																<p class="mb-0 orange-text text-center">60%</p>
-																<div class="progress progress-md mb-0">
-																	<div class="progress-bar bg-danger" role="progressbar" style="width: 60%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+																<div class="action">
+																	<a data-bs-toggle="modal" href="#edit-file" class="file-circle me-2"><i class="fas fa-pen"></i></a>
+																	<a href="javascript:void(0);" class="file-circle"><i class="fas fa-trash-alt"></i></a>
 																</div>
 															</td>
-															<td>15th October 2021</td>
-															<td>18th October 2021</td>
-															<td><span class="badge badge-pill bg-grey-dark">UnPaid</span></td>
-															<td><a href="javascript:void(0);"><span class="badge badge-pill bg-pink-dark">Pay now</span></a></td>
 														</tr>
 													</tbody>
 												</table>
@@ -181,10 +171,11 @@
 								</div>	
 							</div>
 						</div>								
-					</div>					
-				</div>						
+					</div>						
+				</div>							
 			</div>
 		</div>
 	</div>				
 	<!-- /Page Content -->
+   
 @endsection
