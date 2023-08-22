@@ -12,8 +12,19 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('publishers', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->id('publisher_id');
+            $table->string('publisher_name');
+            $table->text('address');
+            $table->string('contact_number', 15);
+            $table->string('email')->unique();
+            $table->string('website')->nullable();
+            $table->date('establish_date');
+            $table->string('contact_person');
+            $table->boolean('isactive')->default(true);
+            $table->timestamp('created_at')->useCurrent();
+            $table->unsignedBigInteger('created_by')->nullable();
+            $table->timestamp('updated_at')->useCurrentOnUpdate()->nullable();
+            $table->unsignedBigInteger('updated_by')->nullable();
         });
     }
 
