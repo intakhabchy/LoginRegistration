@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PublisherController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,4 +38,5 @@ Route::get('/logout',[LoginController::class,'logout'])->name('logout');
 
 Route::get('/dashboard',[DashboardController::class,'index'])->name('dashboard')->middleware('auth');
 
-Route::get('/publisher_list',[DashboardController::class,'publisher_list'])->name('publisherlist')->middleware('auth');
+Route::get('/publisher',[PublisherController::class,'index'])->name('publisherlist')->middleware('auth');
+Route::post('/publisher',[DashboardController::class,'store'])->name('publishersave')->middleware('auth');
