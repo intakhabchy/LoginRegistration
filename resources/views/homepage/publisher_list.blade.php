@@ -173,45 +173,45 @@
 								<div class="col-md-12">
 									<div class="form-group">
 										<label><b>Publisher Name</b></label>
-										<input type="text" class="form-control">
+										<input name="publisher_name" id="publisher_name" type="text" class="form-control">
 									</div>
 								</div>
 							
 								<div class="col-md-12">
 									<div class="form-group">
 										<label><b>Address</b></label>
-										<input type="text" class="form-control">
+										<input name="publisher_address" id="publisher_address" type="text" class="form-control">
 									</div>
 								</div>
 								<div class="col-md-6">
 									<div class="form-group">
 										<label><b>Contact Number</b></label>
-										<input type="text" class="form-control">
+										<input name="publisher_contact_number" id="publisher_contact_number" type="text" class="form-control">
 									</div>
 								</div>
 								<div class="col-md-6">
 									<div class="form-group">
 										<label><b>Email</b></label>
-										<input type="text" class="form-control">
+										<input name="publisher_email" id="publisher_email" type="text" class="form-control">
 									</div>
 								</div>
 								<div class="col-md-6">
 									<div class="form-group">
 										<label><b>Website</b></label>
-										<input type="text" class="form-control">
+										<input name="publisher_website" id="publisher_website" type="text" class="form-control">
 									</div>
 								</div>
 								<div class="col-md-6">
 									<div class="form-group">
 										<label><b>Contact Person</b></label>
-										<input type="text" class="form-control">
+										<input name="publisher_contact_person" id="publisher_contact_person" type="text" class="form-control">
 									</div>
 								</div>
 								<div class="col-md-6">
 									<div class="form-group">
 										<label><b>Active</b></label>
-										<input type="radio" class="form-check-input">Yes
-										<input type="radio" class="form-check-input">No
+										<input name="is_active" id="is_active" type="radio" class="form-check-input">Yes
+										<input name="is_active" id="is_active" type="radio" class="form-check-input">No
 									</div>
 								</div>
 							</div>
