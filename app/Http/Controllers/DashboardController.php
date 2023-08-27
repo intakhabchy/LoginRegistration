@@ -13,6 +13,6 @@ class DashboardController extends Controller
 
     public function publisher_list()
     {
-        return view('homepage.publisher_list');
+        
     }
 }
