@@ -159,6 +159,7 @@
 	<!-- /Page Content -->
 
 	<!-- The Modal -->
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<div class="modal fade" id="file">
 		<div class="modal-dialog modal-dialog-centered modal-lg">
 			<div class="modal-content">
@@ -167,7 +168,8 @@
 					<span class="modal-close"><a href="#" data-bs-dismiss="modal" aria-label="Close"><i class="far fa-times-circle orange-text"></i></a></span>
 				</div>
 				<div class="modal-body">		
-					<form action="tasks.html">
+					<form action="" name="publisher_form" id="publisher_form">
+						@csrf
 						<div class="modal-info">
 							<div class="row">
 								<div class="col-md-12">
@@ -210,8 +212,8 @@
 								<div class="col-md-6">
 									<div class="form-group">
 										<label><b>Active</b></label>
-										<input name="is_active" id="is_active" type="radio" class="form-check-input">Yes
-										<input name="is_active" id="is_active" type="radio" class="form-check-input">No
+										<input name="is_active" id="is_active" type="radio" value="1" class="form-check-input">Yes
+										<input name="is_active" id="is_active" type="radio" value="0" class="form-check-input">No
 									</div>
 								</div>
 							</div>
@@ -223,6 +225,29 @@
 				</div>
 			</div>
 		</div>
+		<script>
+			$(document).ready(function() {
+				$("#publisher_form").submit(function(e) {
+					e.preventDefault(); // Prevent the default form submit
+
+					$.ajax({
+						type: 'POST',
+						url: '{{ route("publishersave") }}',
+						data: $(this).serialize(),
+						success: function(data) {
+							// alert('Data saved successfully');
+							alert(data.message);
+							// You can do more here if needed
+						},
+						error: function(error) {
+							alert(data.message);
+							// alert('An error occurred. Check the console for details.');
+							console.log(error);
+						}
+					});
+				});
+			});
+		</script>
 	</div>
 	<!-- /The Modal -->
 
