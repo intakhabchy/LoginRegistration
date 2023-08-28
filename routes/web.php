@@ -39,4 +39,4 @@ Route::get('/logout',[LoginController::class,'logout'])->name('logout');
 Route::get('/dashboard',[DashboardController::class,'index'])->name('dashboard')->middleware('auth');
 
 Route::get('/publisher',[PublisherController::class,'index'])->name('publisherlist')->middleware('auth');
-Route::post('/publisher',[DashboardController::class,'store'])->name('publishersave')->middleware('auth');
+Route::post('/publisher',[PublisherController::class,'store'])->name('publishersave')->middleware('auth');
