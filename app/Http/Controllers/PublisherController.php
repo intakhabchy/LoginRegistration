@@ -12,7 +12,8 @@ class PublisherController extends Controller
      */
     public function index()
     {
-        return view('homepage.publisher_list');
+        $publishers = Publisher::all();
+        return view('homepage.publisher_list',['publishers'=>$publishers]);
     }
 
     /**

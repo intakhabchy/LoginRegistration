@@ -89,60 +89,32 @@
 												<table class="table table-center table-hover datatable">
 													<thead class="thead-pink">
 														<tr>
-															<th>Task Name</th>
-															<th>Milestone</th>
-															<th>Due Date</th>
-															<th>Description</th>
-															<th>Status</th>
+															<th>Sl</th>
+															<th>Name</th>
+															<th>Address</th>
+															<th>Phone</th>
+															<th>Email</th>
+															<th>Contact Person</th>
 															<th>Action</th>
 														</tr>
 													</thead>
 													<tbody>
-														<tr>
-															<td>Research</td>
-															<td>Research</td>
-															<td> 20th Oct 2021	 </td>
-															<td><p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-																<a href="#" class="read-text">Readmore</a>
-															</td>
-															<td class="text-success">Completed</td>
-															<td>
-																<div class="action">
-																	<a data-bs-toggle="modal" href="#edit-file"  class="file-circle me-2"><i class="fas fa-pen"></i></a>
-																	<a href="javascript:void(0);" class="file-circle"><i class="fas fa-trash-alt"></i></a>
-																</div>
-															</td>
-														</tr>
-														<tr>
-															<td>Design</td>
-															<td>Design</td>
-															<td> 21th Nov 2021 </td>
-															<td><p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-																<a href="#" class="read-text">Readmore</a>
-															</td>
-															<td class="text-danger">Todo</td>
-															<td>
-																<div class="action">
-																	<a data-bs-toggle="modal" href="#edit-file" class="file-circle me-2"><i class="fas fa-pen"></i></a>
-																	<a href="javascript:void(0);" class="file-circle"><i class="fas fa-trash-alt"></i></a>
-																</div>
-															</td>
-														</tr>
-														<tr>
-															<td>Development</td>
-															<td>Development</td>
-															<td> 23rd Nov 2021 </td>
-															<td><p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-																<a href="#" class="read-text">Readmore</a>
-															</td>
-															<td class="text-success">Completed</td>
-															<td>
-																<div class="action">
-																	<a data-bs-toggle="modal" href="#edit-file" class="file-circle me-2"><i class="fas fa-pen"></i></a>
-																	<a href="javascript:void(0);" class="file-circle"><i class="fas fa-trash-alt"></i></a>
-																</div>
-															</td>
-														</tr>
+														@foreach($publishers as $key=>$pl)
+															<tr>
+																<td>{{ $key+1 }}</td>
+																<td>{{ $pl->publisher_name }}</td>
+																<td>{{ $pl->address }}</td>
+																<td>{{ $pl->contact_number }}</td>
+																<td>{{ $pl->email }}</td>
+																<td>{{ $pl->contact_person }}</td>
+																<td>
+																	<div class="action">
+																		<a data-bs-toggle="modal" href="#edit-file"  class="file-circle me-2"><i class="fas fa-pen"></i></a>
+																		<a href="javascript:void(0);" class="file-circle"><i class="fas fa-trash-alt"></i></a>
+																	</div>
+																</td>
+															</tr>
+														@endforeach
 													</tbody>
 												</table>
 											</div>
