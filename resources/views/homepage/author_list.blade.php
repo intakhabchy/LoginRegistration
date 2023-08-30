@@ -69,22 +69,22 @@
 														<tr>
 															<th>Sl</th>
 															<th>Name</th>
-															<th>Address</th>
-															<th>Phone</th>
-															<th>Email</th>
-															<th>Contact Person</th>
+															<th>Country</th>
+															<th>Website</th>
+															<th>Date of Birth</th>
+															<th>Date of Death</th>
 															<th>Action</th>
 														</tr>
 													</thead>
 													<tbody>
-														@foreach($publishers as $key=>$pl)
+														@foreach($authors as $key=>$ath)
 															<tr>
 																<td>{{ $key+1 }}</td>
-																<td>{{ $pl->publisher_name }}</td>
-																<td>{{ $pl->address }}</td>
-																<td>{{ $pl->contact_number }}</td>
-																<td>{{ $pl->email }}</td>
-																<td>{{ $pl->contact_person }}</td>
+																<td>{{ $ath->author_name }}</td>
+																<td>{{ $ath->country }}</td>
+																<td>{{ $ath->website }}</td>
+																<td>{{ $ath->date_of_birth }}</td>
+																<td>{{ $ath->date_of_death }}</td>
 																<td>
 																	<div class="action">
 																		<a data-bs-toggle="modal" href="#edit-file"  class="file-circle me-2"><i class="fas fa-pen"></i></a>

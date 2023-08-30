@@ -40,3 +40,5 @@ Route::get('/dashboard',[DashboardController::class,'index'])->name('dashboard')
 
 Route::get('/publisher',[PublisherController::class,'index'])->name('publisherlist')->middleware('auth');
 Route::post('/publisher',[PublisherController::class,'store'])->name('publishersave')->middleware('auth');
+
+Route::get('/author',[AuthorController::class,'index'])->name('authorlist')->middleware('auth');
