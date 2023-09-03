@@ -58,7 +58,7 @@
 													<h5 class="card-title">Tasks</h5>
 												</div>
 												<div class="col-auto">
-													<a data-bs-toggle="modal" href="#file" class="btn btn-primary btn-rounded"><i class="fas fa-plus"></i> Add Publisher</a>
+													<a data-bs-toggle="modal" href="#file" class="btn btn-primary btn-rounded"><i class="fas fa-plus"></i> Add Author</a>
 												</div>
 											</div>
 										</div>
@@ -114,56 +114,42 @@
 		<div class="modal-dialog modal-dialog-centered modal-lg">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h4 class="modal-title">Add Publisher</h4>
+					<h4 class="modal-title">Add Author</h4>
 					<span class="modal-close"><a href="#" data-bs-dismiss="modal" aria-label="Close"><i class="far fa-times-circle orange-text"></i></a></span>
 				</div>
 				<div class="modal-body">		
-					<form action="" name="publisher_form" id="publisher_form">
+					<form action="" name="author_form" id="author_form">
 						@csrf
 						<div class="modal-info">
 							<div class="row">
 								<div class="col-md-12">
 									<div class="form-group">
-										<label><b>Publisher Name</b></label>
-										<input name="publisher_name" id="publisher_name" type="text" class="form-control">
+										<label><b>Author Name</b></label>
+										<input name="author_name" id="author_name" type="text" class="form-control">
 									</div>
 								</div>
-							
 								<div class="col-md-12">
 									<div class="form-group">
-										<label><b>Address</b></label>
-										<input name="publisher_address" id="publisher_address" type="text" class="form-control">
-									</div>
-								</div>
-								<div class="col-md-6">
-									<div class="form-group">
-										<label><b>Contact Number</b></label>
-										<input name="publisher_contact_number" id="publisher_contact_number" type="text" class="form-control">
-									</div>
-								</div>
-								<div class="col-md-6">
-									<div class="form-group">
-										<label><b>Email</b></label>
-										<input name="publisher_email" id="publisher_email" type="text" class="form-control">
+										<label><b>Country</b></label>
+										<input name="author_country" id="author_country" type="text" class="form-control">
 									</div>
 								</div>
 								<div class="col-md-6">
 									<div class="form-group">
 										<label><b>Website</b></label>
-										<input name="publisher_website" id="publisher_website" type="text" class="form-control">
+										<input name="author_website" id="author_website" type="text" class="form-control">
 									</div>
 								</div>
 								<div class="col-md-6">
 									<div class="form-group">
-										<label><b>Contact Person</b></label>
-										<input name="publisher_contact_person" id="publisher_contact_person" type="text" class="form-control">
+										<label><b>Date of Birth</b></label>
+										<input name="author_dob" id="author_dob" type="date" class="form-control">
 									</div>
 								</div>
 								<div class="col-md-6">
 									<div class="form-group">
-										<label><b>Active</b></label>
-										<input name="is_active" id="is_active" type="radio" value="1" class="form-check-input">Yes
-										<input name="is_active" id="is_active" type="radio" value="0" class="form-check-input">No
+										<label><b>Date of Death</b></label>
+										<input name="author_dod" id="author_dod" type="date" class="form-control">
 									</div>
 								</div>
 							</div>
@@ -177,22 +163,31 @@
 		</div>
 		<script>
 			$(document).ready(function() {
-				$("#publisher_form").submit(function(e) {
+				$("#author_form").submit(function(e) {
 					e.preventDefault(); // Prevent the default form submit
-
+					
 					$.ajax({
 						type: 'POST',
-						url: '{{ route("publishersave") }}',
+						url: '{{ route("authorsave") }}',
 						data: $(this).serialize(),
 						success: function(data) {
 							// alert('Data saved successfully');
 							alert(data.message);
 							// You can do more here if needed
 						},
-						error: function(error) {
-							alert(data.message);
-							// alert('An error occurred. Check the console for details.');
-							console.log(error);
+						error: function(jqXHR, textStatus, errorThrown) {
+							if (jqXHR.status === 422) {
+								// Validation errors occurred
+								var errors = jqXHR.responseJSON.errors;
+
+								// Loop through and display them
+								$.each(errors, function(key, value) {
+									console.log(key + ": " + value);
+									// Here, you can also add the errors to your form, so the user knows what they need to fix
+								});
+							} else {
+								// Some other error occurred. Handle it or display a generic error message
+							}
 						}
 					});
 				});

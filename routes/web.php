@@ -44,3 +44,4 @@ Route::get('/publisher',[PublisherController::class,'index'])->name('publisherli
 Route::post('/publisher',[PublisherController::class,'store'])->name('publishersave')->middleware('auth');
 
 Route::get('/author',[AuthorController::class,'index'])->name('authorlist')->middleware('auth');
+Route::post('/author',[AuthorController::class,'store'])->name('authorsave')->middleware('auth');

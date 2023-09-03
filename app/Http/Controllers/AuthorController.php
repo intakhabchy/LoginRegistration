@@ -29,7 +29,37 @@ class AuthorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'author_name' => 'required|string|max:255',
+            'author_country' => 'required|string|max:255',
+            'author_website' => 'required|string|max:255',
+            'author_dob' => 'required|date',
+            'author_dod' => 'nullable|date',
+        ]);
+
+        $data['country'] = $data['author_country'];
+        $data['website'] = $data['author_website'];
+        $data['date_of_birth'] = $data['author_dob'];
+        $data['date_of_death'] = $data['author_dod'];
+
+        unset($data['author_country']);
+        unset($data['author_website']);
+        unset($data['author_dob']);
+        unset($data['author_dod']);
+
+        $author = Author::create($data);
+    
+        if ($author) { // If the publisher was successfully created
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Author details saved successfully.'
+            ], 201); // HTTP status code 201 means "Created"
+        } else {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Failed to save author details.'
+            ], 500); // HTTP status code 500 means "Internal Server Error"
+        }
     }
 
     /**
