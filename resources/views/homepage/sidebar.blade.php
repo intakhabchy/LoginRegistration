@@ -6,7 +6,7 @@
     </li>
 
     <li class="nav-item">
-        <a href="manage-projects.html" class="nav-link">
+        <a href="{{ route('booklist') }}" class="nav-link">
             <i class="material-icons">business_center</i> Book
         </a>
     </li>

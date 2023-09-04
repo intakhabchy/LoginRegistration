@@ -7,6 +7,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PublisherController;
 use App\Http\Controllers\AuthorController;
+use App\Http\Controllers\BookController;
 
 
 /*
@@ -45,3 +46,5 @@ Route::post('/publisher',[PublisherController::class,'store'])->name('publishers
 
 Route::get('/author',[AuthorController::class,'index'])->name('authorlist')->middleware('auth');
 Route::post('/author',[AuthorController::class,'store'])->name('authorsave')->middleware('auth');
+
+Route::get('/book',[BookController::class,'index'])->name('booklist')->middleware('auth');

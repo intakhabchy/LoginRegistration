@@ -58,7 +58,7 @@
 													<h5 class="card-title">Tasks</h5>
 												</div>
 												<div class="col-auto">
-													<a data-bs-toggle="modal" href="#file" class="btn btn-primary btn-rounded"><i class="fas fa-plus"></i> Add Publisher</a>
+													<a data-bs-toggle="modal" href="#file" class="btn btn-primary btn-rounded"><i class="fas fa-plus"></i> Add Book</a>
 												</div>
 											</div>
 										</div>
@@ -68,23 +68,27 @@
 													<thead class="thead-pink">
 														<tr>
 															<th>Sl</th>
-															<th>Name</th>
-															<th>Address</th>
-															<th>Phone</th>
-															<th>Email</th>
-															<th>Contact Person</th>
+															<th>Book Name</th>
+															<th>Author</th>
+															<th>Publication</th>
+															<th>Genre</th>
+															<th>Language</th>
+															<th>Country of Origin</th>
+															<th>Publication Date</th>
 															<th>Action</th>
 														</tr>
 													</thead>
 													<tbody>
-														@foreach($publishers as $key=>$pl)
+														@foreach($books as $key=>$bk)
 															<tr>
 																<td>{{ $key+1 }}</td>
-																<td>{{ $pl->publisher_name }}</td>
-																<td>{{ $pl->address }}</td>
-																<td>{{ $pl->contact_number }}</td>
-																<td>{{ $pl->email }}</td>
-																<td>{{ $pl->contact_person }}</td>
+																<td>{{ $bk->book_name }}</td>
+																<td>{{ $bk->author_id }}</td>
+																<td>{{ $bk->publisher_id }}</td>
+																<td>{{ $bk->genre }}</td>
+																<td>{{ $bk->language }}</td>
+																<td>{{ $bk->country_of_origin }}</td>
+																<td>{{ $bk->publication_date }}</td>
 																<td>
 																	<div class="action">
 																		<a data-bs-toggle="modal" href="#edit-file"  class="file-circle me-2"><i class="fas fa-pen"></i></a>
@@ -114,7 +118,7 @@
 		<div class="modal-dialog modal-dialog-centered modal-lg">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h4 class="modal-title">Add Publisher</h4>
+					<h4 class="modal-title">Add Book</h4>
 					<span class="modal-close"><a href="#" data-bs-dismiss="modal" aria-label="Close"><i class="far fa-times-circle orange-text"></i></a></span>
 				</div>
 				<div class="modal-body">		
