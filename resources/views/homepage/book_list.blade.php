@@ -128,46 +128,72 @@
 							<div class="row">
 								<div class="col-md-12">
 									<div class="form-group">
-										<label><b>Publisher Name</b></label>
-										<input name="publisher_name" id="publisher_name" type="text" class="form-control">
+										<label><b>Book Name</b></label>
+										<input name="book_name" id="book_name" type="text" class="form-control">
 									</div>
 								</div>
 							
 								<div class="col-md-12">
 									<div class="form-group">
-										<label><b>Address</b></label>
-										<input name="publisher_address" id="publisher_address" type="text" class="form-control">
+										<label><b>Author</b></label>
+										<select name="author_name" id="author_name" class="form-control select">
+											<option value="">Select an author</option>
+											@foreach($authors as $key=>$ath)
+											<option value="{{ $ath->author_id }}">{{ $ath->author_name }}</option>
+											@endforeach
+										</select>
 									</div>
 								</div>
 								<div class="col-md-6">
 									<div class="form-group">
-										<label><b>Contact Number</b></label>
-										<input name="publisher_contact_number" id="publisher_contact_number" type="text" class="form-control">
+										<label><b>Publisher</b></label>
+										<select name="publisher_name" id="publisher_name" class="form-control select">
+											<option value="">Select an publisher</option>
+											@foreach($publishers as $key=>$pl)
+											<option value="{{ $pl->publisher_id }}">{{ $pl->publisher_name }}</option>
+											@endforeach
+										</select>
 									</div>
 								</div>
 								<div class="col-md-6">
 									<div class="form-group">
-										<label><b>Email</b></label>
-										<input name="publisher_email" id="publisher_email" type="text" class="form-control">
+										<label><b>Genre</b></label>										
+										<select name="genre" id="genre" class="form-control select">
+											<option value="">Select a genre</option>
+											<option value="Novel">Novel</option>
+											<option value="Poetry">Poetry</option>
+											<option value="Essay">Essay</option>
+										</select>
 									</div>
 								</div>
 								<div class="col-md-6">
 									<div class="form-group">
-										<label><b>Website</b></label>
-										<input name="publisher_website" id="publisher_website" type="text" class="form-control">
+										<label><b>Language</b></label>
+										<select name="language" id="language" class="form-control select">
+											<option value="">Select a language</option>
+											<option value="Arabic">Arabic</option>
+											<option value="Bengali">Bengali</option>
+											<option value="English">English</option>
+											<option value="Persian">Persian</option>
+											<option value="Urdu">Urdu</option>
+										</select>
 									</div>
 								</div>
 								<div class="col-md-6">
 									<div class="form-group">
-										<label><b>Contact Person</b></label>
-										<input name="publisher_contact_person" id="publisher_contact_person" type="text" class="form-control">
+										<label><b>Country of Origin</b></label>
+										<select name="country_of_origin" id="country_of_origin" class="form-control select">
+											<option value="">Select a country</option>
+											<option value="Bangladesh">Bangladesh</option>
+											<option value="India">India</option>
+											<option value="Pakistan">Pakistan</option>
+										</select>
 									</div>
 								</div>
 								<div class="col-md-6">
 									<div class="form-group">
-										<label><b>Active</b></label>
-										<input name="is_active" id="is_active" type="radio" value="1" class="form-check-input">Yes
-										<input name="is_active" id="is_active" type="radio" value="0" class="form-check-input">No
+										<label><b>Publication Date</b></label>
+										<input name="publication_date" id="publication_date" type="date" class="form-control">
 									</div>
 								</div>
 							</div>
