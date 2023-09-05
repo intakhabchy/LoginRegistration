@@ -48,3 +48,4 @@ Route::get('/author',[AuthorController::class,'index'])->name('authorlist')->mid
 Route::post('/author',[AuthorController::class,'store'])->name('authorsave')->middleware('auth');
 
 Route::get('/book',[BookController::class,'index'])->name('booklist')->middleware('auth');
+Route::post('/book',[BookController::class,'store'])->name('booksave')->middleware('auth');

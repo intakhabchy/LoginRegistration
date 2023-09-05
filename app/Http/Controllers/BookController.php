@@ -33,7 +33,35 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'book_name' => 'required|string|max:255',
+            'author_name' => 'required|string|max:255',
+            'publisher_name' => 'required|string|max:255',
+            'genre' => 'required|string|max:255',
+            'language' => 'required|string|max:255',
+            'country_of_origin' => 'required|string|max:255',
+            'publication_date' => 'nullable|date',
+        ]);
+
+        $data['author_id'] = $data['author_name'];
+        $data['publisher_id'] = $data['publisher_name'];
+
+        unset($data['author_name']);
+        unset($data['publisher_name']);
+
+        $book = Book::create($data);
+    
+        if ($book) { // If the publisher was successfully created
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Book details saved successfully.'
+            ], 201); // HTTP status code 201 means "Created"
+        } else {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Failed to save book details.'
+            ], 500); // HTTP status code 500 means "Internal Server Error"
+        }
     }
 
     /**

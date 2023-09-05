@@ -122,7 +122,7 @@
 					<span class="modal-close"><a href="#" data-bs-dismiss="modal" aria-label="Close"><i class="far fa-times-circle orange-text"></i></a></span>
 				</div>
 				<div class="modal-body">		
-					<form action="" name="publisher_form" id="publisher_form">
+					<form action="" name="author_form" id="author_form">
 						@csrf
 						<div class="modal-info">
 							<div class="row">
@@ -207,22 +207,31 @@
 		</div>
 		<script>
 			$(document).ready(function() {
-				$("#publisher_form").submit(function(e) {
+				$("#author_form").submit(function(e) {
 					e.preventDefault(); // Prevent the default form submit
 
 					$.ajax({
 						type: 'POST',
-						url: '{{ route("publishersave") }}',
+						url: '{{ route("booksave") }}',
 						data: $(this).serialize(),
 						success: function(data) {
 							// alert('Data saved successfully');
 							alert(data.message);
 							// You can do more here if needed
 						},
-						error: function(error) {
-							alert(data.message);
-							// alert('An error occurred. Check the console for details.');
-							console.log(error);
+						error: function(jqXHR, textStatus, errorThrown) {
+							if (jqXHR.status === 422) {
+								// Validation errors occurred
+								var errors = jqXHR.responseJSON.errors;
+
+								// Loop through and display them
+								$.each(errors, function(key, value) {
+									console.log(key + ": " + value);
+									// Here, you can also add the errors to your form, so the user knows what they need to fix
+								});
+							} else {
+								// Some other error occurred. Handle it or display a generic error message
+							}
 						}
 					});
 				});
