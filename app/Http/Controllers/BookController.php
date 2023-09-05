@@ -14,7 +14,7 @@ class BookController extends Controller
      */
     public function index()
     {
-        $books = Book::all();
+        $books = Book::all();   //         $books = Book::where('book_id', 1)->get();
         $authors = Author::all();
         $publishers = Publisher::all();
         return view('homepage.book_list',['books'=>$books,'authors'=>$authors,'publishers'=>$publishers]);
