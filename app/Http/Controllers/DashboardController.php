@@ -10,9 +10,4 @@ class DashboardController extends Controller
     {
         return view('homepage.dashboard', ['useHeaderBg' => true]);
     }
-
-    public function publisher_list()
-    {
-        
-    }
 }
