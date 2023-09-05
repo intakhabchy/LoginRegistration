@@ -83,8 +83,8 @@
 															<tr>
 																<td>{{ $key+1 }}</td>
 																<td>{{ $bk->book_name }}</td>
-																<td>{{ $bk->author_id }}</td>
-																<td>{{ $bk->publisher_id }}</td>
+																<td>{{ $bk->author->author_name }}</td>
+													            <td>{{ $bk->publisher->publisher_name }}</td>
 																<td>{{ $bk->genre }}</td>
 																<td>{{ $bk->language }}</td>
 																<td>{{ $bk->country_of_origin }}</td>

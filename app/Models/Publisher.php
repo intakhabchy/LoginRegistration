@@ -24,4 +24,10 @@ class Publisher extends Model
     protected $dates = [
         'establish_date',
     ];
+
+    public function books()
+    {
+        return $this->hasMany(Book::class);
+    }
+
 }

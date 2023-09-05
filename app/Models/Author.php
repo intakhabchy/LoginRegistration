@@ -24,4 +24,10 @@ class Author extends Model
     protected $dates = [
         'date_of_birth','date_of_death'
     ];
+
+    public function books()
+    {
+        return $this->hasMany(Book::class);
+    }
+
 }

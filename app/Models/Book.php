@@ -23,4 +23,15 @@ class Book extends Model
     protected $dates = [
         'publication_date'
     ];
+
+    public function author()
+    {
+        return $this->belongsTo(Author::class, 'author_id');
+    }
+
+    public function publisher()
+    {
+        return $this->belongsTo(Publisher::class, 'publisher_id');
+    }
+
 }
