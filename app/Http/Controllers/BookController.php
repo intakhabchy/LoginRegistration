@@ -93,6 +93,13 @@ class BookController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $book = Book::find($id);
+
+        if ($book) {
+            $book->delete();
+            return redirect()->route('booklist')->with('success', 'Book deleted successfully.');
+        } else {
+            return redirect()->route('booklist')->with('error', 'Book not found.');
+        }
     }
 }

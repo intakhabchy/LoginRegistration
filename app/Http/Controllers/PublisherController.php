@@ -97,6 +97,13 @@ class PublisherController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $publisher = Publisher::find($id);
+
+        if ($publisher) {
+            $publisher->delete();
+            return redirect()->route('publisherlist')->with('success', 'Publisher deleted successfully.');
+        } else {
+            return redirect()->route('publisherlist')->with('error', 'Publisher not found.');
+        }
     }
 }

@@ -88,7 +88,14 @@
 																<td>
 																	<div class="action">
 																		<a data-bs-toggle="modal" href="#edit-file"  class="file-circle me-2"><i class="fas fa-pen"></i></a>
-																		<a href="javascript:void(0);" class="file-circle"><i class="fas fa-trash-alt"></i></a>
+
+																		<form action="{{ route('authordelete', $ath->author_id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this record?')">
+																		@csrf
+																		@method('DELETE')
+																			<button type="submit" class="file-circle">
+																				<i class="fas fa-trash-alt"></i>
+																			</button>
+																		</form>
 																	</div>
 																</td>
 															</tr>

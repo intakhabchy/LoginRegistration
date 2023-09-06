@@ -91,6 +91,13 @@ class AuthorController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $author = Author::find($id);
+
+        if ($author) {
+            $author->delete();
+            return redirect()->route('authorlist')->with('success', 'Author deleted successfully.');
+        } else {
+            return redirect()->route('authorlist')->with('error', 'Author not found.');
+        }
     }
 }
