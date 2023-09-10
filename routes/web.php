@@ -44,6 +44,9 @@ Route::get('/dashboard',[DashboardController::class,'index'])->name('dashboard')
 Route::get('/publisher',[PublisherController::class,'index'])->name('publisherlist')->middleware('auth');
 Route::post('/publisher',[PublisherController::class,'store'])->name('publishersave')->middleware('auth');
 Route::delete('/publisher/{id}', [PublisherController::class, 'destroy'])->name('publisherdelete')->middleware('auth');
+Route::get('/publisher_info',[PublisherController::class,'edit'])->name('publisherinfo')->middleware('auth');
+// Route::post('/publisher_info', [PublisherController::class, 'edit'])->name('publisherinfo')->middleware('auth');;
+
 
 Route::get('/author',[AuthorController::class,'index'])->name('authorlist')->middleware('auth');
 Route::post('/author',[AuthorController::class,'store'])->name('authorsave')->middleware('auth');

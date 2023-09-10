@@ -87,8 +87,8 @@
 																<td>{{ $pl->contact_person }}</td>
 																<td>
 																	<div class="action">
-																		<a data-bs-toggle="modal" href="#edit-file"  class="file-circle me-2"><i class="fas fa-pen"></i></a>
-		
+																		<a data-id="{{ $pl->publisher_id }}" data-bs-toggle="modal" href="#edit-file" class="file-circle me-2" onclick="getPublisherInfo(this)"><i class="fas fa-pen"></i></a>
+
 																		<form action="{{ route('publisherdelete', $pl->publisher_id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this record?')">
 																		@csrf
 																		@method('DELETE')
@@ -217,38 +217,53 @@
 					<span class="modal-close"><a href="#" data-bs-dismiss="modal" aria-label="Close"><i class="far fa-times-circle orange-text"></i></a></span>
 				</div>
 				<div class="modal-body">		
-					<form action="tasks.html">
+					<form action="" name="publisher_form" id="publisher_form">
+						@csrf
 						<div class="modal-info">
 							<div class="row">
-								<div class="col-md-6">
-									<div class="form-group">
-										<label>Add Task</label>
-										<input type="text" class="form-control" value="Research">
-									</div>
-								</div>
-								<div class="col-md-6">
-									<div class="form-group">
-										<label>Select Milestone</label>
-										<input type="text" class="form-control"  value="Research">
-									</div>
-								</div>
 								<div class="col-md-12">
 									<div class="form-group">
-										<label>Due Date</label>
-										<input type="text" class="form-control"  value="20th October 2021">
+										<label><b>Publisher Name</b></label>
+										<input name="edit_publisher_name" id="edit_publisher_name" type="text" class="form-control">
 									</div>
 								</div>
+							
 								<div class="col-md-12">
 									<div class="form-group">
-										<label>Description</label>
-										<textarea class="form-control" rows="5">Lorem ipsum dolor sit amet, consectetur adipiscing elit</textarea>
+										<label><b>Address</b></label>
+										<input name="edit_publisher_address" id="edit_publisher_address" type="text" class="form-control">
 									</div>
 								</div>
 								<div class="col-md-6">
-									<select class="form-control select">
-										<option>To do </option>
-										<option selected>Completed</option>
-									</select>
+									<div class="form-group">
+										<label><b>Contact Number</b></label>
+										<input name="edit_publisher_contact_number" id="edit_publisher_contact_number" type="text" class="form-control">
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<label><b>Email</b></label>
+										<input name="edit_publisher_email" id="edit_publisher_email" type="text" class="form-control">
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<label><b>Website</b></label>
+										<input name="edit_publisher_website" id="edit_publisher_website" type="text" class="form-control">
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<label><b>Contact Person</b></label>
+										<input name="edit_publisher_contact_person" id="edit_publisher_contact_person" type="text" class="form-control">
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<label><b>Active</b></label>
+										<input name="edit_is_active" id="edit_is_active_true" type="radio" value="1" class="form-check-input">Yes
+										<input name="edit_is_active" id="edit_is_active_false" type="radio" value="0" class="form-check-input">No
+									</div>
 								</div>
 							</div>
 						</div>
@@ -261,5 +276,55 @@
 		</div>
 	</div>
 	<!-- /The Modal -->
+	<script>
+		function getPublisherInfo(element)
+		{
+			var idValue = $(element).data('id');
+		    // alert(value);
+
+			// code for post method
+			// $.ajax({
+			// 	url: '/publisher_info',
+			// 	method: 'POST',
+			// 	data: {
+			// 		id: idValue,
+			// 		_token: '{{ csrf_token() }}'  // This is required for Laravel POST requests
+			// 	},
+			// 	success: function(response) {
+			// 		console.log('Success:', response);
+			// 	},
+			// 	error: function(error) {
+			// 		console.error('Error:', error);
+			// 	}
+			// });
+
+			$.ajax({
+				url: '/publisher_info?id=' + idValue,
+				method: 'GET',
+				success: function(response) {
+					// console.log('Success:', response);
+					// console.log('Name : '+response.publisher.publisher_name);
+
+					$('#edit_publisher_name').val(response.publisher.publisher_name);
+					$('#edit_publisher_address').val(response.publisher.address);
+					$('#edit_publisher_contact_number').val(response.publisher.contact_number);
+					$('#edit_publisher_email').val(response.publisher.email);
+					$('#edit_publisher_website').val(response.publisher.website);
+					$('#edit_publisher_contact_person').val(response.publisher.contact_person);
+					$('#edit_is_active').val(response.publisher.publisher_name);
+
+					// id should be unique
+					if (response.publisher.isactive === true) {
+						$('input[name="edit_is_active"][value="1"]').prop('checked', true);
+					} else if (response.publisher.isactive === false) {
+						$('input[name="edit_is_active"][value="0"]').prop('checked', true);
+					}
+				},
+				error: function(error) {
+					console.error('Error:', error);
+				}
+			});
+		}
+	</script>
    
 @endsection
