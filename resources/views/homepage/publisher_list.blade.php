@@ -217,13 +217,14 @@
 					<span class="modal-close"><a href="#" data-bs-dismiss="modal" aria-label="Close"><i class="far fa-times-circle orange-text"></i></a></span>
 				</div>
 				<div class="modal-body">		
-					<form action="" name="publisher_form" id="publisher_form">
+					<form action="" name="edit_publisher_form" id="edit_publisher_form">
 						@csrf
 						<div class="modal-info">
 							<div class="row">
 								<div class="col-md-12">
 									<div class="form-group">
 										<label><b>Publisher Name</b></label>
+										<input name="edit_publisher_id" id="edit_publisher_id" type="hidden" class="form-control">
 										<input name="edit_publisher_name" id="edit_publisher_name" type="text" class="form-control">
 									</div>
 								</div>
@@ -274,6 +275,33 @@
 				</div>
 			</div>
 		</div>
+		<script>
+			$(document).ready(function(){
+				$("#edit_publisher_form").submit(function(e){
+				e.preventDefault();
+
+				// Get the id
+				let id = $('#edit_publisher_id').val();
+
+				// Make the AJAX request
+				$.ajax({
+					type: 'POST',
+					url: `/publisher_update/${id}`, // Assuming your route URL structure
+					data: $(this).serialize(),
+					success: function(response) {
+						// Handle success
+						alert(response.message);
+						$('#edit-file').modal('hide');
+						location.reload();
+					},
+					error: function(error) {
+						// Handle error
+						console.error("Error:", error);
+					}
+				});
+			});
+			});
+		</script>
 	</div>
 	<!-- /The Modal -->
 	<script>
@@ -305,6 +333,7 @@
 					// console.log('Success:', response);
 					// console.log('Name : '+response.publisher.publisher_name);
 
+					$('#edit_publisher_id').val(response.publisher.publisher_id);
 					$('#edit_publisher_name').val(response.publisher.publisher_name);
 					$('#edit_publisher_address').val(response.publisher.address);
 					$('#edit_publisher_contact_number').val(response.publisher.contact_number);

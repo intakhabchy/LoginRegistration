@@ -99,7 +99,33 @@ class PublisherController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $data = $request->validate([
+            'edit_publisher_name' => 'required|string|max:255',
+            'edit_publisher_address' => 'required|string|max:255',
+            'edit_publisher_contact_number' => 'required|string|max:15',
+            'edit_publisher_email' => 'required|email|max:255',
+            'edit_publisher_website' => 'nullable|string|max:255',
+            'edit_publisher_contact_person' => 'sometimes|string|max:255',
+            'edit_is_active' => 'required|boolean',
+        ]);
+    
+        $publisher = Publisher::find($id);
+    
+        if (!$publisher) {
+            return response()->json(['message' => 'Publisher not found'], 404);
+        }
+    
+        $publisher->update([
+            'publisher_name' => $data['edit_publisher_name'],
+            'address' => $data['edit_publisher_address'],
+            'contact_number' => $data['edit_publisher_contact_number'],
+            'email' => $data['edit_publisher_email'],
+            'website' => $data['edit_publisher_website'],
+            'contact_person' => $data['edit_publisher_contact_person'],
+            'is_active' => $data['edit_is_active'],
+        ]);
+    
+        return response()->json(['message' => 'Publisher updated successfully!']);
     }
 
     /**
