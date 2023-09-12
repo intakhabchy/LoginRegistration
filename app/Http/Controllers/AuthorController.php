@@ -73,9 +73,19 @@ class AuthorController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Request $request)
     {
-        //
+        $id = $request->input('id');
+
+        // Do something with the ID ...
+
+        $author = Author::find($id);
+
+        if($author) {
+            return response()->json(['message' => 'Data received!', 'author' => $author]);
+        } else {
+            return response()->json(['message' => 'Item not found!'], 404);
+        }
     }
 
     /**

@@ -87,7 +87,7 @@
 																<td>{{ $ath->date_of_death }}</td>
 																<td>
 																	<div class="action">
-																		<a data-bs-toggle="modal" href="#edit-file"  class="file-circle me-2"><i class="fas fa-pen"></i></a>
+																	<a data-id="{{ $ath->author_id }}" data-bs-toggle="modal" href="#edit-file" class="file-circle me-2" onclick="getAuthorInfo(this)"><i class="fas fa-pen"></i></a>
 
 																		<form action="{{ route('authordelete', $ath->author_id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this record?')">
 																		@csrf
@@ -212,38 +212,40 @@
 					<span class="modal-close"><a href="#" data-bs-dismiss="modal" aria-label="Close"><i class="far fa-times-circle orange-text"></i></a></span>
 				</div>
 				<div class="modal-body">		
-					<form action="tasks.html">
+				<form action="" name="edit_author_form" id="edit_author_form">
+						@csrf
 						<div class="modal-info">
 							<div class="row">
-								<div class="col-md-6">
+								<div class="col-md-12">
 									<div class="form-group">
-										<label>Add Task</label>
-										<input type="text" class="form-control" value="Research">
-									</div>
-								</div>
-								<div class="col-md-6">
-									<div class="form-group">
-										<label>Select Milestone</label>
-										<input type="text" class="form-control"  value="Research">
+										<label><b>Author Name</b></label>
+										<input name="edit_author_id" id="edit_author_id" type="hidden" class="form-control">
+										<input name="edit_author_name" id="edit_author_name" type="text" class="form-control">
 									</div>
 								</div>
 								<div class="col-md-12">
 									<div class="form-group">
-										<label>Due Date</label>
-										<input type="text" class="form-control"  value="20th October 2021">
-									</div>
-								</div>
-								<div class="col-md-12">
-									<div class="form-group">
-										<label>Description</label>
-										<textarea class="form-control" rows="5">Lorem ipsum dolor sit amet, consectetur adipiscing elit</textarea>
+										<label><b>Country</b></label>
+										<input name="edit_author_country" id="edit_author_country" type="text" class="form-control">
 									</div>
 								</div>
 								<div class="col-md-6">
-									<select class="form-control select">
-										<option>To do </option>
-										<option selected>Completed</option>
-									</select>
+									<div class="form-group">
+										<label><b>Website</b></label>
+										<input name="edit_author_website" id="edit_author_website" type="text" class="form-control">
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<label><b>Date of Birth</b></label>
+										<input name="edit_author_dob" id="edit_author_dob" type="date" class="form-control">
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<label><b>Date of Death</b></label>
+										<input name="edit_author_dod" id="edit_author_dod" type="date" class="form-control">
+									</div>
 								</div>
 							</div>
 						</div>
@@ -256,5 +258,32 @@
 		</div>
 	</div>
 	<!-- /The Modal -->
-   
+	<script>
+		function getAuthorInfo(element)
+		{
+			var idValue = $(element).data('id');
+
+			$.ajax({
+				url: '/author_info?id=' + idValue,
+				method: 'GET',
+				success: function(response) {
+					$('#edit_author_id').val(response.author.author_id);
+					$('#edit_author_name').val(response.author.author_name);
+					$('#edit_author_country').val(response.author.country);
+					$('#edit_author_website').val(response.author.website);
+
+					const author_dob = new Date(response.author.date_of_birth);
+					const author_dob_format = author_dob.toISOString().split('T')[0];  // This will get "2023-08-30"
+					document.getElementById('edit_author_dob').value = author_dob_format;
+
+					const author_dod = new Date(response.author.date_of_death);
+					const author_dod_format = author_dod.toISOString().split('T')[0];  // This will get "2023-08-30"
+					document.getElementById('edit_author_dod').value = author_dod_format;
+				},
+				error: function(error) {
+					console.error('Error:', error);
+				}
+			});
+		}
+	</script>
 @endsection
