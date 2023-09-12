@@ -256,6 +256,33 @@
 				</div>
 			</div>
 		</div>
+		<script>
+			$(document).ready(function(){
+				$("#edit_author_form").submit(function(e){				
+					e.preventDefault();
+
+					// Get the id
+					let id = $('#edit_author_id').val();
+
+					// Make the AJAX request
+					$.ajax({
+						type: 'POST',
+						url: `/author_update/${id}`, // Assuming your route URL structure
+						data: $(this).serialize(),
+						success: function(response) {
+							// Handle success
+							alert(response.message);
+							$('#edit-file').modal('hide');
+							location.reload();
+						},
+						error: function(error) {
+							// Handle error
+							console.error("Error:", error);
+						}
+					});
+				});
+			});
+		</script>
 	</div>
 	<!-- /The Modal -->
 	<script>

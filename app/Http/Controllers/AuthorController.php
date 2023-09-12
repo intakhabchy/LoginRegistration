@@ -33,7 +33,7 @@ class AuthorController extends Controller
             'author_name' => 'required|string|max:255',
             'author_country' => 'required|string|max:255',
             'author_website' => 'required|string|max:255',
-            'author_dob' => 'required|date',
+            'author_dob' => 'nullable|date',
             'author_dod' => 'nullable|date',
         ]);
 
@@ -93,7 +93,29 @@ class AuthorController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $data = $request->validate([
+            'edit_author_name' => 'required|string|max:255',
+            'edit_author_country' => 'required|string|max:255',
+            'edit_author_website' => 'required|string|max:15',
+            'edit_author_dob' => 'nullable|date',
+            'edit_author_dod' => 'nullable|date',
+        ]);
+    
+        $author = Author::find($id);
+
+        if (!$author) {
+            return response()->json(['message' => 'Author not found'], 404);
+        }
+    
+        $author->update([
+            'author_name' => $data['edit_author_name'],
+            'country' => $data['edit_author_country'],
+            'website' => $data['edit_author_website'],
+            'date_of_birth' => $data['edit_author_dob'],
+            'date_of_death' => $data['edit_author_dod'],
+        ]);
+    
+        return response()->json(['message' => 'Author updated successfully!']);
     }
 
     /**
