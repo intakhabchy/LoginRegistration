@@ -59,3 +59,5 @@ Route::post('/author_update/{id}', [AuthorController::class, 'update'])->name('a
 Route::get('/book',[BookController::class,'index'])->name('booklist')->middleware('auth');
 Route::post('/book',[BookController::class,'store'])->name('booksave')->middleware('auth');
 Route::delete('/book/{id}', [BookController::class, 'destroy'])->name('bookdelete')->middleware('auth');
+Route::get('/book_info',[BookController::class,'edit'])->name('bookinfo')->middleware('auth');
+Route::post('/book_update/{id}', [BookController::class, 'update'])->name('bookupdate')->middleware('auth');

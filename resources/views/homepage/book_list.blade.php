@@ -91,7 +91,7 @@
 																<td>{{ $bk->publication_date }}</td>
 																<td>
 																	<div class="action">
-																		<a data-bs-toggle="modal" href="#edit-file"  class="file-circle me-2"><i class="fas fa-pen"></i></a>
+																		<a data-id="{{ $bk->book_id }}" data-bs-toggle="modal" href="#edit-file" class="file-circle me-2" onclick="getBookInfo(this)"><i class="fas fa-pen"></i></a>
 																	
 																		<form action="{{ route('bookdelete', $bk->author_id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this record?')">
 																		@csrf
@@ -256,38 +256,80 @@
 					<span class="modal-close"><a href="#" data-bs-dismiss="modal" aria-label="Close"><i class="far fa-times-circle orange-text"></i></a></span>
 				</div>
 				<div class="modal-body">		
-					<form action="tasks.html">
+					<form action="" name="edit_author_form" id="edit_author_form">
+						@csrf
 						<div class="modal-info">
 							<div class="row">
-								<div class="col-md-6">
-									<div class="form-group">
-										<label>Add Task</label>
-										<input type="text" class="form-control" value="Research">
-									</div>
-								</div>
-								<div class="col-md-6">
-									<div class="form-group">
-										<label>Select Milestone</label>
-										<input type="text" class="form-control"  value="Research">
-									</div>
-								</div>
 								<div class="col-md-12">
 									<div class="form-group">
-										<label>Due Date</label>
-										<input type="text" class="form-control"  value="20th October 2021">
+										<label><b>Book Name</b></label>
+										<input name="edit_book_id" id="edit_book_id" type="hidden" class="form-control">
+										<input name="edit_book_name" id="edit_book_name" type="text" class="form-control">
 									</div>
 								</div>
+							
 								<div class="col-md-12">
 									<div class="form-group">
-										<label>Description</label>
-										<textarea class="form-control" rows="5">Lorem ipsum dolor sit amet, consectetur adipiscing elit</textarea>
+										<label><b>Author</b></label>
+										<select name="edit_author_name" id="edit_author_name" class="form-control select">
+											<option value="">Select an author</option>
+											@foreach($authors as $key=>$ath)
+											<option value="{{ $ath->author_id }}">{{ $ath->author_name }}</option>
+											@endforeach
+										</select>
 									</div>
 								</div>
 								<div class="col-md-6">
-									<select class="form-control select">
-										<option>To do </option>
-										<option selected>Completed</option>
-									</select>
+									<div class="form-group">
+										<label><b>Publisher</b></label>
+										<select name="edit_publisher_name" id="edit_publisher_name" class="form-control select">
+											<option value="">Select an publisher</option>
+											@foreach($publishers as $key=>$pl)
+											<option value="{{ $pl->publisher_id }}">{{ $pl->publisher_name }}</option>
+											@endforeach
+										</select>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<label><b>Genre</b></label>										
+										<select name="edit_genre" id="edit_genre" class="form-control select">
+											<option value="">Select a genre</option>
+											<option value="Novel">Novel</option>
+											<option value="Poetry">Poetry</option>
+											<option value="Essay">Essay</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<label><b>Language</b></label>
+										<select name="edit_language" id="edit_language" class="form-control select">
+											<option value="">Select a language</option>
+											<option value="Arabic">Arabic</option>
+											<option value="Bengali">Bengali</option>
+											<option value="English">English</option>
+											<option value="Persian">Persian</option>
+											<option value="Urdu">Urdu</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<label><b>Country of Origin</b></label>
+										<select name="edit_country_of_origin" id="edit_country_of_origin" class="form-control select">
+											<option value="">Select a country</option>
+											<option value="Bangladesh">Bangladesh</option>
+											<option value="India">India</option>
+											<option value="Pakistan">Pakistan</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<label><b>Publication Date</b></label>
+										<input name="edit_publication_date" id="edit_publication_date" type="date" class="form-control">
+									</div>
 								</div>
 							</div>
 						</div>
@@ -300,5 +342,32 @@
 		</div>
 	</div>
 	<!-- /The Modal -->
-   
+	<script>
+		function getBookInfo(element)
+		{
+			var idValue = $(element).data('id');
+
+			$.ajax({
+				url: '/book_info?id=' + idValue,
+				method: 'GET',
+				success: function(response) {
+					$('#edit_book_id').val(response.book.book_id);
+					$('#edit_book_name').val(response.book.book_name);
+					$('#edit_author_name').val(response.book.author_id).trigger('change');
+					$('#edit_publisher_name').val(response.book.publisher_id).trigger('change');
+					$('#edit_genre').val(response.book.genre).trigger('change');
+					$('#edit_language').val(response.book.language).trigger('change');
+					$('#edit_country_of_origin').val(response.book.country_of_origin).trigger('change');
+					$('#edit_publication_date').val(response.book.publication_date);
+
+					const publication_date = new Date(response.book.publication_date);
+					const publication_date_format = publication_date.toISOString().split('T')[0];  // This will get "2023-08-30"
+					document.getElementById('edit_publication_date').value = publication_date_format;
+				},
+				error: function(error) {
+					console.error('Error:', error);
+				}
+			});
+		}
+	</script>
 @endsection

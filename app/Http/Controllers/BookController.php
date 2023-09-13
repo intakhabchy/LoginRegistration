@@ -75,9 +75,19 @@ class BookController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Request $request)
     {
-        //
+        $id = $request->input('id');
+
+        // Do something with the ID ...
+
+        $book = Book::find($id);
+
+        if($book) {
+            return response()->json(['message' => 'Data received!', 'book' => $book]);
+        } else {
+            return response()->json(['message' => 'Item not found!'], 404);
+        }
     }
 
     /**
