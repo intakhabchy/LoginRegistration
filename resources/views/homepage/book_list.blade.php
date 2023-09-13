@@ -256,7 +256,7 @@
 					<span class="modal-close"><a href="#" data-bs-dismiss="modal" aria-label="Close"><i class="far fa-times-circle orange-text"></i></a></span>
 				</div>
 				<div class="modal-body">		
-					<form action="" name="edit_author_form" id="edit_author_form">
+					<form action="" name="edit_book_form" id="edit_book_form">
 						@csrf
 						<div class="modal-info">
 							<div class="row">
@@ -340,6 +340,33 @@
 				</div>
 			</div>
 		</div>
+		<script>
+			$(document).ready(function(){
+				$("#edit_book_form").submit(function(e){				
+					e.preventDefault();
+
+					// Get the id
+					let id = $('#edit_book_id').val();
+
+					// Make the AJAX request
+					$.ajax({
+						type: 'POST',
+						url: `/book_update/${id}`, // Assuming your route URL structure
+						data: $(this).serialize(),
+						success: function(response) {
+							// Handle success
+							alert(response.message);
+							$('#edit-file').modal('hide');
+							location.reload();
+						},
+						error: function(error) {
+							// Handle error
+							console.error("Error:", error);
+						}
+					});
+				});
+			});
+		</script>
 	</div>
 	<!-- /The Modal -->
 	<script>

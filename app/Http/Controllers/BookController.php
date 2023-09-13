@@ -95,7 +95,33 @@ class BookController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $data = $request->validate([
+            'edit_book_name' => 'required|string|max:255',
+            'edit_author_name' => 'required|string|max:255',
+            'edit_publisher_name' => 'required|string|max:15',
+            'edit_genre' => 'required|string|max:255',
+            'edit_language' => 'required|string|max:255',
+            'edit_country_of_origin' => 'sometimes|string|max:255',
+            'edit_publication_date' => 'nullable|date',
+        ]);
+    
+        $book = Book::find($id);
+    
+        if (!$book) {
+            return response()->json(['message' => 'Book not found'], 404);
+        }
+    
+        $book->update([
+            'book_name' => $data['edit_book_name'],
+            'author_id' => $data['edit_author_name'],
+            'publisher_id' => $data['edit_publisher_name'],
+            'genre' => $data['edit_genre'],
+            'language' => $data['edit_language'],
+            'country_of_origin' => $data['edit_country_of_origin'],
+            'publication_date' => $data['edit_publication_date'],
+        ]);
+    
+        return response()->json(['message' => 'Book updated successfully!']);
     }
 
     /**
