@@ -87,7 +87,7 @@
 																<td>{{ $ath->date_of_death }}</td>
 																<td>
 																	<div class="action">
-																	<a data-id="{{ $ath->author_id }}" data-bs-toggle="modal" href="#edit-file" class="file-circle me-2" onclick="getAuthorInfo(this)"><i class="fas fa-pen"></i></a>
+																		<a data-id="{{ $ath->author_id }}" data-bs-toggle="modal" href="#edit-file" class="file-circle me-2" onclick="getAuthorInfo(this)"><i class="fas fa-pen"></i></a>
 
 																		<form action="{{ route('authordelete', $ath->author_id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this record?')">
 																		@csrf
